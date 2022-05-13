@@ -10,11 +10,23 @@
    font-size:54px;
    color: white; 
 }
-#alternativas{
+#font2 {
+    text-indent: 40px;
+    font-family: sans-serif;
     color: white;
-    border: solid;
-    border-radius: 5px;
-    text-indent: 350px;
-    width: 40%;
-    border: center;
+    padding-top: 10%;
+}
+#font3 {
+    padding-top: 5%;
+    color: white;
+}
+#sizebutton {
+    height: 50px;
+    width: 150px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+}
+#button{
+    text-indent: 82%;
+    margin-top: 70px;
 }
