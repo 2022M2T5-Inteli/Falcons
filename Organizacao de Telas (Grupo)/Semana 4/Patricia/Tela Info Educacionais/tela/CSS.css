@@ -1,0 +1,60 @@
+h1 {
+    color: #7a7423;
+  }
+h1.content {
+    color: #FFFFFF;
+  }
+p {
+    color:#7a7423;
+  }
+
+  /* charts */
+
+.charts{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 20px;
+  width: 100%;
+  padding: 20px;
+  padding-top: 0;
+}
+
+.chart {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    width: 100%;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.cardtexto {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+#mapa{
+  height: 400px;
+}
