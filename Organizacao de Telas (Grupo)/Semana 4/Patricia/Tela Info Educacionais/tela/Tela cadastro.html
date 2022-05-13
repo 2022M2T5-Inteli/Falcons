@@ -67,10 +67,11 @@
                                 <label for="Estado" class="form-label"><h1 class="content">INDICADOR</h1></label>
                                 <select id="Estado" class="form-control">
                                 <option value="">Selecione...</option>
-                                <option>Ceará</option>
-                                <option>Pernambuco</option>
-                                <option>São Paulo</option>
-                                <option>Rio de Janeiro</option>
+                                <option>Permanência</option>
+                                <option>Aprendizado de Matemática</option>
+                                <option>Aprendizado de Português</option>
+                                <option>IDEB</option>
+                                <option>Indice de Reprovação</option>
                                 </select> 
                             </div>
                         </div>
@@ -122,33 +123,42 @@
                     </div>
                     <div class="card text-white" style="background: #7a7423;">
                             <div class="row align-items-center justify-content-center" style="margin-top: 24px;">
-                                <div class="col">
+                                <div class="col-7">
                                     <img id="mapa" src="mapa-brasil.png">
                                 </div>
-                                <div class="col">
-                                    <div class="charts">
-                                        <div class="chart">
-                                            <h2>Título</h2>
-                                            <canvas id="barChart"></canvas>
+                                <div class="col-5">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="charts">
+                                                <div class="chart">
+                                                    <h2>Título</h2>
+                                                    <canvas id="barChart"></canvas>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="charts">
-                                        <div class="chart">
-                                            <h2>Título</h2>
-                                            <canvas id="pieChart"></canvas>
+                                        <div class="col">
+                                            <div class="charts">
+                                            <div class="chart">
+                                                <h2>Título</h2>
+                                                <canvas id="pieChart"></canvas>
+                                            </div>
                                         </div>
+                                        </div>
+                                        
                                     </div>
+                                   <div class="row">
                                     <div class="charts">
                                         <div class="chart">
                                             <h2>Título</h2>
                                             <canvas id="lineChart"></canvas>
                                         </div>
                                     </div>
+                                   </div>
                                 </div>
                             </div>
                     </div>
                     <div class="card text-white mb-3 p-5" style="background: linear-gradient(to right, #ffffff, #7a7423);">
-                        <div class="row mb-4">
+                        <div class="row mb-4 justify-content-center">
                             <div class="column-4 col-sm-3">
                               <div class="card cardtexto"> <h1> XX% </h1> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ipsa aspernatur aliquid consectetur numquam, possimus natus magnam laudantium corporis totam alias dolores quod fugiat! Voluptate nulla quia accusantium numquam. </p></div>
                             </div>
