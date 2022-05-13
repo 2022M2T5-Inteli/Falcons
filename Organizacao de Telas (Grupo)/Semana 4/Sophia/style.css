@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+#linha_1{
+    height: 80%;
+}
+
+#linha_2{
+    height: 20%;
+}
+
+.navbutton{
+    border-radius: 10px 10px 0px 0px;
+}
+
+.color-primary{
+    background-color: #7A7423;
+}
+
+.btn{
+    width: 70px;
+    height: 70px;
+    border-radius: 10px 10px 10px 0px;
+}
+
+.h1{
+    font-family: Manrope;
+}

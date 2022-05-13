@@ -1,3 +1,7 @@
+.btn{
+    width: 70px;
+    height: 70px;
+}
 #top{
     background-color: #7A7423;
 }
@@ -5,19 +9,15 @@
     width: 20%;
 }
 #font{
-    text-indent: 80px;
     font-family: sans-serif;
-   font-size:54px;
-   color: white; 
+    font-size:54px;
+    color: white; 
 }
 #font2 {
-    text-indent: 40px;
     font-family: sans-serif;
     color: white;
-    padding-top: 10%;
 }
 #font3 {
-    padding-top: 5%;
     color: white;
 }
 #sizebutton {
