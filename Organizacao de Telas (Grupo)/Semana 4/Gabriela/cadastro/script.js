@@ -2,7 +2,7 @@
 let questionCards = [
   {
     id: 1,
-    number: 3,
+    number: "2",
     domain: "Tema 2",
     question: "Questão 2",
     weight: 1,
@@ -31,7 +31,7 @@ let questionCards = [
   },
   {
     id: 2,
-    number: 3,
+    number: "3",
     domain: "Tema 3",
     question:
       "Questão 3",
@@ -61,7 +61,7 @@ let questionCards = [
   },
   {
     id: 3,
-    number: 4,
+    number: "4",
     domain: "Tema 4",
     question:
       "Questão 4",
@@ -100,7 +100,7 @@ function createQuestionCard(
   let newQuestionCard = `<div class="row col-12 text-center align-items-center m-2 questions" id="question${questionId}">
   <!--linha das questões-->
   <div class="col-lg-1">
-    <h6 style="border:black solid 1pt; border-radius:50px;">${questionNumber}</h6>
+    <h6 style="border:black solid 1pt; border-radius:50px;">Questão${questionNumber}</h6>
   </div>
 
   <div class="col-lg-3">
