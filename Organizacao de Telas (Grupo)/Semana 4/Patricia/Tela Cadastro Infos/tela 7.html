@@ -5,21 +5,75 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+      <!--Bootstrap Icons-->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    
+      <!--fonte do subtítulo e textos-->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap" rel="stylesheet">
+    
+      <!--fonte do título-->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    
+      <!--jquery-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
         <link href="CSS.css" rel="stylesheet">
+        <link href="../../Henrique/NAV/styles.css" rel="stylesheet">
     </head>
     <body class="bg-light">
+        <nav id="NAV"class="navbar navbar-expand-lg navbar-mainbg" style="font-family:Poppins;">
+            <a class="navbar-brand navbar-logo" href="#" ><img style="width:176px;"src="../../Henrique/NAV/imgs/Falconi.png"/></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                <div class="hori-selector"><div class="left"></div><div class="right"></div>
+            </div>
+            <li class="nav-item ">
+                <a class="nav-link" href="../../Henrique/HOME/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../../Joao/Falconi.html">Avaliação</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../diagnostico/index.html"> Diagnósticos </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="../../Patricia/Tela Info Educacionais/tela/Tela cadastro.html"> Dados Gerais </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="javascript:void(0);"> Admin </a>
+            </li>
+            </ul>
+            <button class="btn-dark" style="width:120px; margin-right: 50px; margin-top:10px; margin-bottom:10px; border-radius: 20px;" ><strong><a style="color:#fff" href="../../Gabriela/perfil/index.html" >Perfil</a></strong></button>
+           </nav>
             <video autoplay muted loop id="myVideo" class="video">
                 <source src="images/background-video.mp4" type="video/mp4">
             </video>
             <article class="container mb-4">
-                <div class="col-12">
-                    <div class="py-5 text-left">
-                        <h1 class="mb-4 d-block mx-auto"> Cadastro de Informações</h1>
-                        <p class="lead"> Preencha as informações gerais da sua instituição de ensino abaixo.</p>
-                    </div>
-                        <div class="card p-5">
-                            <div class="row mb-3">
+                <div class="col-12" style="justify-content: center; align-items: center; display: flex;">
+                   
+                        <div class="card p-5" style="margin-top: 70px; width: 65%; text-align: center;">
+                            <div class="py-5 ">
+                                <h1 class="mb-4 d-block mx-auto"> Cadastro de Informações</h1>
+                                <p class="lead"> Preencha as informações gerais da sua instituição de ensino abaixo.</p>
+                            </div>
+                            <div class="row mb-3 justify-content-center">
                                 <div class="col-8 col-sm-4" style="padding-bottom: 25px;">
                                     <label for="Estado" class="form-label">Estado</label>
                                     <select id="Estado" class="form-control">
@@ -41,29 +95,27 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="row mb-3">
+                            <div class="row mb-3 justify-content-center">
                                 <div class="col-8 col-sm-4" style="padding-bottom: 25px;">
                                     <label for="Escola" class="form-label">Escola</label>
                                     <select id="Escola" class="form-control">
                                     <option value="">Selecione...</option>
-                                    <option>Ceará</option>
-                                    <option>Pernambuco</option>
-                                    <option>São Paulo</option>
-                                    <option>Rio de Janeiro</option>
+                                    <option>Escola 1</option>
+                                    <option>Escola 2</option>
+                                    <option>Escola 3</option>
+                                    <option>Escola 4</option>
                                     </select> 
                                 </div>
                                 <div class="col-8 col-sm-4">
                                     <label for="Tipo" class="form-label">Tipo</label>
                                     <select id="Tipo" class="form-control">
                                     <option value="">Selecione...</option>
-                                    <option>Ceará</option>
-                                    <option>Pernambuco</option>
-                                    <option>São Paulo</option>
-                                    <option>Rio de Janeiro</option>
+                                    <option>Particular</option>
+                                    <option>Pública</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row justify-content-center">
                                 <div class="col-8" style="padding-bottom: 25px;">
                                     <label for="Rede" class="form-label">Rede</label>
                                     <select id="Rede" class="form-control">
@@ -76,43 +128,28 @@
                                 </div>
                                 <div class="col-8" style="padding-bottom: 25px;">
                                     <label for="Número de alunos" class="form-label">Número de alunos</label>
-                                    <select id="Número de alunos" class="form-control">
-                                    <option value="">Selecione...</option>
-                                    <option>50</option>
-                                    <option>100</option>
-                                    <option>200</option>
-                                    <option>300</option>
-                                    </select>
+                                    <input type="number" id="Número de alunos" class="form-control">
+                                    
                                 </div>
                                 <div class="col-8" style="padding-bottom: 25px;">
                                     <label for="Número de professores" class="form-label">Número de professores</label>
-                                    <select id="Número de professores" class="form-control">
-                                    <option value="">Selecione...</option>
-                                    <option>5</option>
-                                    <option>10</option>
-                                    <option>25</option>
-                                    <option>20</option>
-                                    </select>
+                                    <input type="number" id="Número de professores" class="form-control">
                                 </div>
                                 <div class="col-8" style="padding-bottom: 25px;">
                                     <label for="Número de funcionários administrativos" class="form-label">Número de funcionários administrativos</label>
-                                    <select id="Número de funcionários administrativos" class="form-control">
-                                    <option value="">Selecione...</option>
-                                    <option>5</option>
-                                    <option>10</option>
-                                    <option>20</option>
-                                    <option>30</option>
-                                    </select>
+                                    <input type="number" id="Número de funcionários administrativos" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-sm-10">
-                                <button type="Enviar" class="btn btn-primary">Enviar</button>
+                                <div class="col-7"></div>
+                                <div class="col-5">
+                                <button type="Enviar" class="btn btn-primary"><a style="color:#fff; text-decoration: none;" href="../../Joao/Falconi.html">Iniciar Agendas</a></button>
                                 </div>
                             </div>
                         </div>
                 </div>
             </article>    
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="../../Henrique/NAV/script.js"></script>
     </body>
 </html>
