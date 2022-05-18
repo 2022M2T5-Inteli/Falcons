@@ -100,7 +100,7 @@ function createQuestionCard(
   let newQuestionCard = `<div class="row col-12 text-center align-items-center m-2 questions" id="question${questionId}">
   <!--linha das questões-->
   <div class="col-lg-1">
-    <h6 style="border:black solid 1pt; border-radius:50px;">Questão${questionNumber}</h6>
+    <h6 style="border:black solid 1pt; border-radius:50px;">${questionNumber}</h6>
   </div>
 
   <div class="col-lg-3">
