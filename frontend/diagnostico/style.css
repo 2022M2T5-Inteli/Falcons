@@ -17,16 +17,16 @@ h4, h5, h6, p{
 #section_management{
     background-color: #EAEBE9;
     height: 100vh;
-    padding-top: 32px;
-    padding-bottom: 32px;
 }
 
 #card{
-    background-color: black;
+  background-color: #9E9627;
+  border: none;
     color:#fff;
     width: 95%;
     margin:auto;
     padding-left: 20px;
+    font-weight: 600;
 }
 
 #title-table{

@@ -1,0 +1,94 @@
+<div class="row justify-content-space-before align-items-center" style="margin-left: 24px;">
+                <div class="col-5" style="margin-top: 24px;">
+                    <div class="row justify-content-md-center">
+                        <div class="card" style="width: 80%;">
+                            <strong  style="background-color: black; color: #a7e82b; text-align: center; border-radius: 20px;">Sistema de Gestão</strong>
+                            <h3 style="text-align: center;">NOTA</h3>
+                        </div>
+                    </div>
+                        <div class="row justify-content-md-center" style="text-align: center;">
+                        <div class="card" style="width: 130px; height: 60px;">
+                            <h4>TITLE</h4>
+                            <p>nota</p>
+                        </div>
+                        <div class="card" style="width: 130px; height: 60px;">
+                            <h4>TITLE</h4>
+                            <p>nota</p>
+                        </div>
+                        <div class="card" style="width: 130px; height: 60px;">
+                            <h4>TITLE</h4>
+                            <p>nota</p>
+                        </div>
+                        <div class="card" style="width: 130px; height: 60px;">
+                            <h4>TITLE</h4>
+                            <p>nota</p>
+                        </div>
+                        </div>
+                        <div class="row justify-content-md-center">
+                            <div class="card" style="width: 60%; height: 60%;">
+                                <div id="chartjs-radar">
+                                    <canvas id="myChart3"></canvas>
+                                  </div>                       
+                            </div>  
+                        </div>
+                </div>
+                <div class="col-7" style="margin-top: 24px;"> 
+                    <div class="row justify-content-md-center">
+                        <div class="card" style="width: 80%;">
+                            <strong style="background-color: black; color: #a7e82b; text-align: center; border-radius: 20px;">Gestão de Pessoas</strong>
+                            <h3 style="text-align: center;">NOTA</h3>
+                        </div>
+                    </div>
+                    <div class="row justify-content-md-center" style="text-align: center;">
+                        <div class="card" style="width: 130px; height: 60px;">
+                            <h4>TITLE</h4>
+                            <p>nota</p>
+                        </div>
+                        <div class="card" style="width: 130px; height: 60px;">
+                            <h4>TITLE</h4>
+                            <p>nota</p>
+                        </div>
+                        <div class="card" style="width: 130px; height: 60px;">
+                            <h4>TITLE</h4>
+                            <p>nota</p>
+                        </div>
+                        <div class="card" style="width: 130px; height: 60px;">
+                            <h4>TITLE</h4>
+                            <p>nota</p>
+                        </div>
+                        <div class="card" style="width: 130px; height: 60px;">
+                            <h4>TITLE</h4>
+                            <p>nota</p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <div class="card" style="width: 42%; height: 42%;">
+                            <div id="chartjs-radar">
+                                <canvas id="myChart2"></canvas>
+                              </div>                       
+                        </div>  
+                    </div>
+                </div>
+            </div>
+
+            <div id="section_management">
+                <div class="col-7" style="background-color: #9E9627">
+                    <div class="row" s>
+                        <h1 style="color:#fff">Agenda de Gestão</h1>
+                    </div>
+                    <div class="row">
+                        <div class="card">a</div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">a</div>
+                        </div>
+                        <div class="col">
+                            <div class="card">a</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+        
+                </div>
+            </div> 

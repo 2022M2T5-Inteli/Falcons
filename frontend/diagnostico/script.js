@@ -306,7 +306,6 @@ var myRadarChart = new Chart(canva3.getContext("2d"), {
 });
 
 
-
 function test(){
   var tabsNewAnim = $('#navbarSupportedContent');
   var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
