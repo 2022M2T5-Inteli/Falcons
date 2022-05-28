@@ -1,6 +1,6 @@
 # Projeto3
 
-## Grupo: "<"Fal">""<"Cons">"
+## Grupo: <Fal><Cons>
 
 ## Objetivo: 
 
