@@ -25,6 +25,5 @@ Desse modo, iremos desenvolver uma plataforma Web, responsável por garantir a e
     - SQL
 
 
-
 ## Arquitetura do Sistema: 
 <img src="ArquiteturaDeSoftware.png" alt ="estrutura da arquitetura de software do sistema"/>

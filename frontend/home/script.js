@@ -1,4 +1,4 @@
-//NavBar
+// Script da NavBAr para animação
 
 function test(){
     var tabsNewAnim = $('#navbarSupportedContent');
@@ -39,7 +39,7 @@ function test(){
     setTimeout(function(){ test(); });
   });
 
-//Home
+
 
 
 

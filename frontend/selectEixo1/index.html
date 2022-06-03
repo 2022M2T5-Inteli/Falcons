@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>formulário 1</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
     <!---Botstrap-->
     <link
       rel="stylesheet"
@@ -75,8 +76,9 @@
                           width: 70px;
                           height: 70px;
                         "
+                        
                       >
-                        Início
+                        <a style="color:#202020; text-decoration: none;" href="../selectEixo/index.html">Ínicio</a>
                       </button>
                       <button
                         type="button"
@@ -88,7 +90,7 @@
                           height: 70px;
                         "
                       >
-                        1
+                        <a style="color:#fff; text-decoration: none;" href="../formsEixo1/index.html">1</a>
                       </button>
                       <button
                         type="button"
@@ -100,7 +102,7 @@
                           height: 70px;
                         "
                       >
-                        2
+                      <a style="color:#fff; text-decoration: none;" href="../formsEixo2/index.html">2</a>
                       </button>
                       <button
                         type="button"
@@ -112,7 +114,7 @@
                           height: 70px;
                         "
                       >
-                        3
+                      <a style="color:#fff; text-decoration: none;" href="../formsEixo3/index.html">3</a>
                       </button>
                       <button
                         type="button"
@@ -124,7 +126,7 @@
                           height: 70px;
                         "
                       >
-                        4
+                      <a style="color:#fff; text-decoration: none;" href="../formsEixo4/index.html">4</a>
                       </button>
                       <button
                         type="button"
@@ -136,7 +138,7 @@
                           height: 70px;
                         "
                       >
-                        5
+                      <a style="color:#fff; text-decoration: none;" href="../formsEixo5/index.html">5</a>
                       </button>
                       <button
                         type="button"
@@ -148,7 +150,7 @@
                           height: 70px;
                         "
                       >
-                        6
+                      <a style="color:#fff; text-decoration: none;" href="../formsEixo6/index.html">6</a>
                       </button>
                       <button
                         type="button"
@@ -160,19 +162,7 @@
                           height: 70px;
                         "
                       >
-                        7
-                      </button>
-                      <button
-                        type="button"
-                        class="btn"
-                        style="
-                          background-color: #fffcd7;
-                          color: #737373;
-                          width: 70px;
-                          height: 70px;
-                        "
-                      >
-                        8
+                      <a style="color:#fff; text-decoration: none;" href="../formsEixo7/index.html">7</a>
                       </button>
                     </div>
                   </div>
@@ -212,6 +202,8 @@
                 margin-top: 50px;
                 font-family: Poppins;
               "
+              id="Selector"
+              onchange="Seletor()"
             >
               <option selected>Escolha uma opção</option>
               <option value="1">Ensino</option>
@@ -227,16 +219,9 @@
       </div>
       <div class="row justify-content-center">
         <div class="col-9"></div>
-        <button
-          type="button"
-          style="border-radius: 20px; width: 100px"
-          class="btn-dark"
-        >
-          <a
-            style="color: white; text-decoration: none; font-family: Poppins;"
-            href="../Daniel/baseforms.html"
-            >Começar</a
-          >
+        <div class="col-3" id="select-btn">
+
+        </div>
         </button>
       </div>
     </div>
