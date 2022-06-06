@@ -1,4 +1,17 @@
-// mockupCards
+function update(){
+  var select = document.getElementById('agendas');
+  var text = select.options[select.selectedIndex].text;
+  console.log(text); // Português
+
+  if(text == "Agenda Educacional"){
+    document.getElementById("Eixo").innerHTML = "<option value=''>Selecione...</option><option value=''>Ensino</option> <option value=''>Equidade</option> <option value=''>Pessoas</option> <option value=''>Fluxo</option> <option value>Gestão para Resultados</option><option value>Infraestrutura e TI</option> <option value>Gestão para Resultados</option>"
+  }
+  else if (text == "Agenda de Gestão"){
+    document.getElementById("Eixo").innerHTML = "<option value=''>Gestão de Pessoas</option> <option value=''>Sistema de Gestão</option>"
+  }
+
+}
+
 let questionCards = [
   {
     id: 1,

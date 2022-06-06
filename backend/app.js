@@ -16,6 +16,7 @@ app.use(express.json())
 /****** CRUD ******************************************************************/
 
 // Retorna todos registros (é o R do CRUD - Read)
+// Gabriela 
 app.get('/Agenda', (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
@@ -36,7 +37,7 @@ app.post('/agendaInsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-  sql = "INSERT INTO Agenda (idAgenda, Agenda) VALUES ('" + req.body.idAgenda + "', 'Teste Agenda')";
+  sql = "INSERT INTO Agenda (idAgenda, Agenda) VALUES ('" + req.body.idAgenda + "', '" + req.body.Agenda + "')";
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   db.run(sql, [],  err => {
       if (err) {
@@ -52,7 +53,7 @@ app.post('/agendaUpdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-  sql = "UPDATE Agenda SET Agenda = '" + req.body.Agenda + "' WHERE idAgenda = 3" ;
+  sql = "UPDATE Agenda SET Agenda = '" + req.body.Agenda + "' WHERE idAgenda ="  + req.body.idAgenda ;
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   db.run(sql, [],  err => {
       if (err) {
@@ -81,6 +82,7 @@ app.post('/agendaDelete', urlencodedParser, (req, res) => {
 
 
 //CRUD - Eixos
+// Sophia
 app.get('/Eixo', (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
@@ -145,7 +147,7 @@ app.post('/eixoDelete', urlencodedParser, (req, res) => {
 });
 
 // CRUD - Escola 
-
+// Henrique
 app.get('/Escola', (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
@@ -178,7 +180,7 @@ app.post('/escolaInsert', urlencodedParser, (req, res) => {
 });
 
 // CRUD - Pergunta 
-
+//Mateus
 app.get('/Pergunta', (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
@@ -211,7 +213,7 @@ app.post('/perguntaInsert', urlencodedParser, (req, res) => {
 });
 
 // CRUD - Tema 
-
+//Patricia
 app.get('/Tema', (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
@@ -244,7 +246,7 @@ app.post('/temaInsert', urlencodedParser, (req, res) => {
 });
 
 // CRUD - Resposta 
-
+// Daniel
 app.get('/Resposta', (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
@@ -276,6 +278,7 @@ app.post('/respostaInsert', urlencodedParser, (req, res) => {
   res.end();
 });
 
+//Gabriela
 app.get('/Cidade', (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS

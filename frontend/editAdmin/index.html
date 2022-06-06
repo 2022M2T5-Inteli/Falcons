@@ -38,7 +38,7 @@
 
 <body>
   <nav id="NAV"class="navbar navbar-expand-lg navbar-mainbg">
-    <a class="navbar-brand navbar-logo" href="#" ><img style="width:176px;"src="../../Henrique/NAV/imgs/Falconi.png"/></a>
+    <a class="navbar-brand navbar-logo" href="#" ><img style="width:176px;" src="../imgs/Falconi.png"/></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars text-white"></i>
     </button>
@@ -48,12 +48,6 @@
     </div>
     <li class="nav-item ">
         <a class="nav-link" href="../../Henrique/HOME/index.html">Home</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="../../Joao/Falconi.html">Avaliação</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="../diagnostico/index.html"> Diagnósticos </a>
     </li>
     <li class="nav-item ">
         <a class="nav-link" href="../../Patricia/Tela Info Educacionais/tela/Tela cadastro.html"> Dados Gerais </a>
@@ -75,14 +69,20 @@
         </div>
         <div class="row" style="margin-top:50px">
           <h2 style="text-align:start; font-family: Manrope;"> Por favor, indique a Agenda: </h2>
-            <select id="Agenda" class="form-control">
+          <select name="agendas" id="agendas" class="form-control" onChange="update()">
+            <option value="select">Selecione...</option>
+            <option value="AgendaEducacional">Agenda Educacional</option>
+            <option value="AgendaDeGestao">Agenda de Gestão</option>
+          </select>
+        </div>
+        <div class="row" style="margin-top:50px">
+          <h2 style="text-align:start; font-family: Manrope;">Por favor, indique o Eixo: </h2>
+            <select id="Eixo" class="form-control">
             <option value="">Selecione...</option>
-            <option value="AgEdu">Agenda Educacional</option>
-            <option value="AgGes">Agenda de Gestão</option>
             </select> 
         </div>
       </div>
-       </div>
+      </div>
     </div>
 
 
