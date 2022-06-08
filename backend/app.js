@@ -294,6 +294,22 @@ app.get('/Cidade', (req, res) => {
   db.close(); // Fecha o banco
 });
 
+// Patricia
+app.get('/Opcao', (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var sql = 'SELECT * FROM Opcao ORDER BY idOpcao COLLATE NOCASE';
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    res.json(rows);
+  });
+  db.close(); // Fecha o banco
+});
+
 /* Inicia o servidor */
 app.listen(port, hostname, () => {
   console.log(`BD server running at http://${hostname}:${port}/`);
