@@ -5,6 +5,10 @@ $(document).ready(function () {
     xhttp.send() //envia o request
     var data = JSON.parse(xhttp.responseText) //retorna a resposta em forma de texto (tem q transformar em JSON para poder consultar atributos especificos como .nome; .idade)
     console.log(data)
-    document.getElementById("font2").innerHTML = data[0].Pergunta
-    document.getElementById("font3").innerHTML = data[1].Pergunta
+    document.getElementById("font2").innerHTML = data[73].Pergunta
+    document.getElementById("font3").innerHTML = data[74].Pergunta
+    document.getElementById("font4").innerHTML = data[75].Pergunta
+    document.getElementById("font5").innerHTML = data[76].Pergunta
+    document.getElementById("font6").innerHTML = data[77].Pergunta
+
 });
