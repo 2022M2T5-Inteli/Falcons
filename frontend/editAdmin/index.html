@@ -77,7 +77,7 @@
         </div>
         <div class="row" style="margin-top:50px">
           <h2 style="text-align:start; font-family: Manrope;">Por favor, indique o Eixo: </h2>
-            <select id="Eixo" class="form-control">
+            <select id="Eixo" class="form-control" onchange="updateQuestions()">
             <option value="">Selecione...</option>
             </select> 
         </div>
@@ -86,40 +86,34 @@
     </div>
 
 
-
     <div class="container d-flex flex-column align-items-center" id="list">
-      <!--cria um container para a seção das perguntas-->
-
-
       <div class="row col-12 text-center align-items-center" id="questionsHeader">
-
         <div class="col-12 p-4">
           <h4 style="color: black; text-align: start;">Selecione a Questão que Deseja Alterar: </h4>
         </div>
-
       </div>
 
         <div class="col-12 d-flex flex-column justify-content-start align-items-center p-2" id="questionsWrapper">
-          <div class="row col-12 text-center align-items-center m-2 questions">
+          <div class="row col-12 text-center align-items-center m-2 questions" style="border-bottom:1pt solid #000">
             <!--linha das questões-->
             <div class="col-lg-1">
-              <h6 style="border:black solid 1pt; border-radius:50px;">1</h6>
+              <h6 style="border:black solid 1pt; border-radius:50px;">0</h6>
             </div>
   
             <div class="col-lg-3">
               <h6>Tema</h6>
             </div>
   
-            <div class="col-lg-5">
+            <div class="col-lg-6">
               <h6>Questão</h6>
             </div>
   
-            <div class="col-lg-3">
+            <div class="col-lg-2">
               <button id="editBtn">
-                <!--botão editar questões-->
                 <i class="bi bi-brush"></i>
               </button>
             </div>
+            <div id="dados1"></div>
         </div>
       </div>
     </div>
@@ -129,7 +123,6 @@
   <div class="col-4 p-4">
     <div class="card" style="background-color:darkgrey; text-align: center;">
       <h4>Adicionar Questão: <button id="addBtn" data-bs-toggle="modal" data-bs-target="#questionModal">
-        <!--botão add questões-->
         <i class="bi bi-plus-square"></i>
       </button></h4>
         <!-- Modal -->
