@@ -13,7 +13,7 @@
             xhttp.send() //envia o request
             var options = JSON.parse(xhttp.responseText) //retorna a resposta em forma de texto (tem q transformar em JSON para poder consultar atributos especificos como .nome; .idade)
             console.log(options)
-            perguntas = perguntas.filter(pergunta => pergunta.idEixo === 1);  
+            perguntas = perguntas.filter(pergunta => pergunta.idEixo === 7);  
             if (options){
                 for (var i =0; i < perguntas.length; i++){
                     /*--linha das questões */
