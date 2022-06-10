@@ -33,6 +33,8 @@
     
         <link href="style.css" rel="stylesheet">
         <link href="../styles.css" rel="stylesheet">
+        
+        <script src="script.js"></script>
     </head>
     <body class="bg-light">
         <nav id="NAV"class="navbar navbar-expand-lg navbar-mainbg" style="font-family:Poppins;">
@@ -68,26 +70,25 @@
                                 <p class="lead"> Preencha as informações gerais da sua instituição de ensino abaixo.</p>
                             </div>
                             <div class="row mb-3 justify-content-center">
-                                <div class="col-8 col-sm-4" style="padding-bottom: 25px;">
-                                    <label for="Estado" class="form-label">Estado</label>
-                                    <select id="Estado" class="form-control">
-                                    <option value="">Selecione...</option>
-                                    <option>Ceará</option>
-                                    <option>Pernambuco</option>
-                                    <option>São Paulo</option>
-                                    <option>Rio de Janeiro</option>
-                                    </select> 
+                                <div class="col-8" style="padding-bottom: 25px;">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="Estado" class="form-label">Estado</label>
+                                            <select class="form-control" id="estado1" value="Selecione"></select>
+                                        </div>  
+                                        <div class="col-6">
+                                            <label for="Cidade" class="form-label">Cidade</label>
+                                            <select class="form-control" id="cidade1" value="Selecione"></select>
+                                            <script language="JavaScript" type="text/javascript" charset="utf-8">
+                                                new dgCidadesEstados({
+                                                    cidade: document.getElementById('cidade1'),
+                                                    estado: document.getElementById('estado1')
+                                                })
+                                            </script>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-8 col-sm-4" >
-                                    <label for="Cidade" class="form-label">Cidade</label>
-                                    <select id="Cidade" class="form-control">
-                                    <option value="">Selecione...</option>
-                                    <option>Ceará</option>
-                                    <option>Pernambuco</option>
-                                    <option>São Paulo</option>
-                                    <option>Rio de Janeiro</option>
-                                    </select>
-                                </div>
+                         
                             </div>
                             <div class="row mb-3 justify-content-center">
                                 <div class="col-8 col-sm-4" style="padding-bottom: 25px;">

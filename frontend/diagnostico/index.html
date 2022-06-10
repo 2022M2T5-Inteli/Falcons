@@ -142,50 +142,42 @@
         </div>
     </div>  
     <div id="section_management">
-		<div class="col-6" style="background-color:#9E9627">
+    <div class="row" style="width:100%;">
+        <div class="col-6" style="background-color:#9E9627">
 			<div id="card" class="card">
 				<h2>Agenda de Gestão</h2>
 			</div>
-			<div class="row" style="padding:10px;">
-				<div class="card">
+			<div class="row align-items-center justify-content-center" style="padding:20px; ">
+				<div class="card" style="width:75%">
                     <h4 style="background-color: #9E9627; border-radius:10px; color:#fff; text-align: center;">Maturidade de Gestão</h4>
                     <h2 style="text-align: center;">NOTA</h2>
 				</div>
+                <img src="referencia2.png" style="border-radius:20px; margin-top: 50px; width: 80%;">
 			</div>
 		</div>
-      
-        <div class="row justify-content-space-before align-items-center">
-            <div class="row">
-                <div class="card" style="width: 40%; margin-top: 20px;">
-                   
-                </div>
-            </div>
-            <div class="row justify-content-space-before align-items-center" >
-                
-				<div class="col-5" style="margin-top: 24px;">
-                  
-                        
-                        <div class="row justify-content-md-center">
-                            <div class="card" style="width: 60%; height: 60%;">
+            <div class="col-6" style="padding:20px;">
+                   <div class="row">
+                       <div class="col-5">
+                            <div class="card" >
+                                <div id="chartjs-radar">
+                                    <canvas id="myChart2"></canvas>
+                                  </div>                                          
+                            </div>  
+                       </div>
+                   <div class="col-7 card">
+                   </div>
+                   </div>
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="card" >
                                 <div id="chartjs-radar">
                                     <canvas id="myChart3"></canvas>
-                                  </div>                       
-                            </div>  
+                                </div>                       
+                            </div>
                         </div>
-                </div>
-                <div class="col-7" style="margin-top: 24px;"> 
-                   
-                    
-                    <div class="row justify-content-md-center">
-                        <div class="card" style="width: 42%; height: 42%;">
-                            <div id="chartjs-radar">
-                                <canvas id="myChart2"></canvas>
-                              </div>                       
-                        </div>  
+                        <div class="col-7 card"></div>
                     </div>
-                </div>
             </div>
-        </div>
     </div>  
     <script src="script.js"></script>
     <script src="../script.js"></script>    
