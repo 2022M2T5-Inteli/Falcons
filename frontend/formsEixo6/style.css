@@ -17,8 +17,9 @@
     font-family: sans-serif;
     color: white;
 }
-#font3 {
-    color: white;
+h4{
+    padding: 20px 20px;
+    font-family: Poppins;
 }
 #sizebutton {
     height: 50px;
