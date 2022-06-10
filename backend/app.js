@@ -201,7 +201,7 @@ app.post('/perguntaInsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-  sql = "INSERT INTO Pergunta (idPergunta, Pergunta, idTema) VALUES ('" + req.body.idPergunta + "', '" + req.body.Pergunta + "' ,'" + req.body.idTema + "')";
+  sql = "INSERT INTO Pergunta (idPergunta, Pergunta, idEixo, idTema, idTipo) VALUES ('" + req.body.idPergunta + "', '" + req.body.Pergunta + "' ,'" + req.body.idEixo + "', 2, 2)";
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   db.run(sql, [], err => {
     if (err) {

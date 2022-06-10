@@ -4,17 +4,17 @@ function update(){
   console.log(text); // Português
 
   if(text == "Agenda Educacional"){
+    document.getElementById("dados1").innerHTML = ""
     document.getElementById("Eixo").innerHTML = "<option value=''>Selecione...</option><option value='Eixo1'>Ensino</option> <option value='Eixo2'>Equidade</option> <option value='Eixo3'>Pessoas</option> <option value='Eixo4'>Fluxo</option> <option value='Eixo5'>Gestão para Resultados</option><option value='Eixo6'>Infraestrutura e TI</option> <option value='Eixo7'>Incentivos</option>"
   }
   else if (text == "Agenda de Gestão"){
-    document.getElementById("Eixo").innerHTML = "<option value=''>Selecione...</option><option value='Eixo1'>Gestão de Pessoas</option> <option value='Eixo2'>Sistema de Gestão</option>"
+    document.getElementById("Eixo").innerHTML = "<option value=''>Selecione...</option><option value='Eixo8'>Gestão de Pessoas</option> <option value='Eixo9'>Sistema de Gestão</option>"
   }
-
-
 }
 
 function addQuestion(){
   var sizeList = 0;
+  var Eixo = 0;
   $(document).ready(function (){
       var url = '/Pergunta' //endpoint
       var xhttp = new XMLHttpRequest() //script faz o request para o servidor a partir do URL usando o protocolo http, sem ter q atualizar a pag
@@ -26,7 +26,6 @@ function addQuestion(){
 
       var selectEixo = document.getElementById('Eixo');//Importar Seletor = HTML 
       var escolhido = selectEixo.options[selectEixo.selectedIndex].text;
-      var Eixo = 0;
 
       if( escolhido == "Ensino"){
         Eixo = 1
@@ -60,11 +59,13 @@ function addQuestion(){
         url: "http://127.0.0.1:3008/perguntaInsert",
         type: 'POST',
         data: {
-            "idPergunta": sizeList, 
-            "Pergunta": document.getElementById("questionModalText").value,
-            "idEixo:": "1"
-        },
-    });
+            idPergunta: sizeList, 
+            Pergunta: document.getElementById("questionModalText").value,
+            idEixo: Eixo,
+        },  
+    },
+    );
+    
     ler()  
     
 
@@ -99,8 +100,6 @@ function addQuestion(){
           }
       });
   }})}
-
- 
 
 function updateQuestions(){
   var select = document.getElementById('Eixo');
@@ -340,7 +339,6 @@ function updateQuestions(){
         </div>`)
       }}
   })};
-
 
 function setQuestionModal(questionObj) {
   let radioButtons = [];
