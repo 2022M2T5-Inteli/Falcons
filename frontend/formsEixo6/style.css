@@ -11,11 +11,15 @@
 #font{
     font-family: sans-serif;
     font-size:54px;
-    color: #4d4905; 
+    color: white; 
 }
 #font2 {
     font-family: sans-serif;
-    color: #4d4905;
+    color: white;
+}
+h4{
+    padding: 20px 20px;
+    font-family: Poppins;
 }
 #sizebutton {
     height: 50px;
@@ -26,8 +30,4 @@
 #button{
     text-indent: 82%;
     margin-top: 70px;
-}
-h4{
-    padding: 20px 20px;
-    font-family: Poppins;
 }
