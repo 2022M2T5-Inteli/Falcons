@@ -132,21 +132,9 @@
       <div class="modal-content">
         <div class="modal-header">
             <div class="col-5">
-              <h5 class="modal-title" id="questionModalTitle">
-                Indique o Eixo da Questão:
-              </h5>
             </div>
             <div class="col-5">
-              <select id="Cidade" class="form-control">
-                <option value="">Selecione...</option>
-                <option value="1">1. Ensino</option>
-                <option value="2">2. Equidade</option>
-                <option value="3">3. Pessoas</option>
-                <option value="4">4. Fluxo</option>
-                <option value="5">5. Gestão para Resultados</option>
-                <option value="6">6. Infraestrutura e TI</option>
-                <option value="7">7. Incentivos</option>
-            </select>
+             
             </div>
             <div class="col-2">
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -154,40 +142,51 @@
           </div>
         <div class="modal-body p-4">
           <!-- texto da questão -->
-          <div class="d-flex" id="questionBody">
-            <h1 id="questionNumberText">2.</h1>
-            <p id="questionModalText" contenteditable="true">Existe um processo de treinamento e desenvolvimento dos
-              colaboradores? Como este funciona? Matriz de
-              capacitação? Como é feito o levantamento de competências e conhecimentos faltantes para treinamentos?</p>
+          <div class="row">
+            <div class="d-flex" id="questionBody">
+              <div class="col-9">
+                <input type="text" class="form-control" style="font-family: Poppins;" placeholder="Indique o texto da sua nova questão" id="questionModalText" contenteditable="true"/>
+              </div> 
+            <div class="col-3">
+              <select class="form-select" aria-label=".form-select-sm example">
+                <option selected>Pontos</option>
+                <option value="1">1 ponto</option>
+                <option value="2">2 pontos</option>
+                <option value="3">3 pontos</option>
+              </select>
+            </div>
+          </div>
           </div>
           <!-- alternativas disponíveis para a questão -->
           <div class="p-5" id="optionsBody">
             <div class="form-check p-2">
               <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
               <label class="form-check-label" contenteditable="true">
-                <p>Default radio</p>
+                <p>Possível Resposta 2</p>
               </label>
-              <div class="row">
-                <div class="col-3">
-                  <select class="form-select" aria-label=".form-select-sm example">
-                    <option selected>Pontos</option>
-                    <option value="1">1 ponto</option>
-                    <option value="2">2 pontos</option>
-                    <option value="3">3 pontos</option>
-                  </select>
-                </div>
-              </div>
             </div>
             <div class="form-check p-2">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
               <label class="form-check-label" contenteditable="true">
-                <p>Default radio</p>
+                <p>Possível Resposta 2</p>
+              </label>
+            </div>
+            <div class="form-check p-2">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+              <label class="form-check-label" contenteditable="true">
+                <p>Possível Resposta 3</p>
+              </label>
+            </div>
+            <div class="form-check p-2">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+              <label class="form-check-label" contenteditable="true">
+                <p>Possível Resposta 4</p>
               </label>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Salvar</button>
+          <button type="button" class="btn btn-primary" onclick="addQuestion()" data-bs-dismiss="modal">Salvar</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
         </div>
       </div>

@@ -4,55 +4,103 @@ function update(){
   console.log(text); // Português
 
   if(text == "Agenda Educacional"){
-    document.getElementById("Eixo").innerHTML = "<option value=''>Selecione...</option><option value='Eixo1'>Ensino</option> <option value='Eixo2'>Equidade</option> <option value='Eixo3'>Pessoas</option> <option value='Eixo4'>Fluxo</option> <option value='Eixo5'>Gestão para Resultados</option><option value='Eixo6'>Infraestrutura e TI</option> <option value='Eixo7'>Gestão para Resultados</option>"
+    document.getElementById("Eixo").innerHTML = "<option value=''>Selecione...</option><option value='Eixo1'>Ensino</option> <option value='Eixo2'>Equidade</option> <option value='Eixo3'>Pessoas</option> <option value='Eixo4'>Fluxo</option> <option value='Eixo5'>Gestão para Resultados</option><option value='Eixo6'>Infraestrutura e TI</option> <option value='Eixo7'>Incentivos</option>"
   }
   else if (text == "Agenda de Gestão"){
     document.getElementById("Eixo").innerHTML = "<option value=''>Selecione...</option><option value='Eixo1'>Gestão de Pessoas</option> <option value='Eixo2'>Sistema de Gestão</option>"
   }
 
+
 }
 
+function addQuestion(){
+  var sizeList = 0;
+  $(document).ready(function (){
+      var url = '/Pergunta' //endpoint
+      var xhttp = new XMLHttpRequest() //script faz o request para o servidor a partir do URL usando o protocolo http, sem ter q atualizar a pag
+      xhttp.open("get", url, false) //define o metódo do request (/get), o endpoint (url), async ou n
+      xhttp.send() //envia o request
+      var perguntas = JSON.parse(xhttp.responseText) 
+      console.log(perguntas.length)
+      sizeList = (perguntas.length + 1)
 
-function updateQuestions(){
-  var select = document.getElementById('Eixo');
-  var eixoSelect = select.options[select.selectedIndex].text;
-  console.log(eixoSelect); 
+      var selectEixo = document.getElementById('Eixo');//Importar Seletor = HTML 
+      var escolhido = selectEixo.options[selectEixo.selectedIndex].text;
+      var Eixo = 0;
 
-$(document).ready(function(){
-  var url = '/Pergunta' //endpoint
-  var xhttp = new XMLHttpRequest() //script faz o request para o servidor a partir do URL usando o protocolo http, sem ter q atualizar a pag
-  xhttp.open("get", url, false) //define o metódo do request (/get), o endpoint (url), async ou n
-  xhttp.send() //envia o request
-  var perguntas = JSON.parse(xhttp.responseText) //retorna a resposta em forma de texto (tem q transformar em JSON para poder consultar atributos especificos como .nome; .idade)
-  console.log(perguntas)
-  if (perguntas){
-          url = '/Opcao' //endpoint
-          xhttp = new XMLHttpRequest() //script faz o request para o servidor a partir do URL usando o protocolo http, sem ter q atualizar a pag
-          xhttp.open("get", url, false) //define o metódo do request (/get), o endpoint (url), async ou n
-          xhttp.send() //envia o request
-          var options = JSON.parse(xhttp.responseText) //retorna a resposta em forma de texto (tem q transformar em JSON para poder consultar atributos especificos como .nome; .idade)
-          console.log(options)
-          perguntas = perguntas.filter(pergunta => pergunta.idEixo === 1);
-          if (options){
-              for (var i =0; i < perguntas.length; i++){
-                  /*--linha das questões */
-                  var caixa = (`<div class="row"> <h4 id=" ${perguntas[i].idPergunta} "> ${perguntas[i].Pergunta} </h4>
-                  <div style="width: 550px;"> <select class="form-select" aria-label="Default select example">
-                      <option selected> Escolha uma opção </option>`)
-                  for (var j=0; j<options.length; j++){
-                      if (perguntas[i].idTipo == options[j].idTipo){
-                          caixa += (`<option value="1"> ${options[j].Alternativa} </option>`)
-                      }
-                  }
-                  caixa += (`</select> </div> </div>`)
-                  $(font2).append(caixa)
-              }
+      if( escolhido == "Ensino"){
+        Eixo = 1
+      }
+      else if(escolhido == "Equidade"){
+        Eixo = 2
+      }
+      else if(escolhido == "Pessoas"){
+        Eixo = 3
+      }
+      else if(escolhido == "Fluxo"){
+        Eixo = 4
+      }
+      else if(escolhido == "Gestão para Resultados"){
+        Eixo = 5
+      }
+      else if(escolhido == "Infraestrutura e TI"){
+        Eixo = 6
+      }
+      else if(escolhido == "Incentivos"){
+        Eixo = 7
+      }
+      else if(escolhido == "Equidade"){
+        Eixo = 8
+      }
+
+      console.log(Eixo)
+
+
+      $.ajax({
+        url: "http://127.0.0.1:3008/perguntaInsert",
+        type: 'POST',
+        data: {
+            "idPergunta": sizeList, 
+            "Pergunta": document.getElementById("questionModalText").value,
+            "idEixo:": "1"
+        },
+    });
+    ler()  
+    
+
+    function ler() {
+      $.ajax({
+          url: "/Pergunta",
+          type: 'GET',
+          success: data => {
+            for (var i = 0; i < 9 ;i++){
+              $(dados1).append("")
+              $(dados1).append(`<div class="row col-12 text-center align-items-center m-2 questions" id="question${data[i].idPergunta}"> 
+              <!--linha das questões-->
+              <div class="col-lg-1">
+                <h6 style="border:black solid 1pt; border-radius:50px;">${data[i].idPergunta}</h6>
+              </div>
+            
+              <div class="col-lg-3">
+                <h6>${data[i].idPergunta}</h6>
+              </div>
+            
+              <div class="col-lg-6">
+                <h6>${data[i].Pergunta}</h6>
+              </div>
+            
+              <div class="col-lg-2 d-flex justify-content-center">
+                <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
+                  <i class="bi bi-brush" id="edit"></i>
+                </button>
+              </div>
+            </div>`)
+          };
           }
-  }
-});
-}
+      });
+  }})}
 
-
+ 
 
 function updateQuestions(){
   var select = document.getElementById('Eixo');
@@ -60,41 +108,238 @@ function updateQuestions(){
   console.log(eixoSelect); // Português
 
   $(document).ready(function(){
-    var url = '/Pergunta' //endpoint
+      var url = '/Pergunta' //endpoint
       var xhttp = new XMLHttpRequest() //script faz o request para o servidor a partir do URL usando o protocolo http, sem ter q atualizar a pag
       xhttp.open("get", url, false) //define o metódo do request (/get), o endpoint (url), async ou n
       xhttp.send() //envia o request
-      var data = JSON.parse(xhttp.responseText)
+      var data = JSON.parse(xhttp.responseText);
 
       if(eixoSelect == "Ensino"){
-          var start = 0 
-          var eixoLength = 12;
-      }
-      for (var i = start; i < eixoLength ;i++){
-        $(dados1).append("")
-        $(dados1).append(`<div class="row col-12 text-center align-items-center m-2 questions" id="question${data[i].idPergunta}"> 
-        <!--linha das questões-->
-        <div class="col-lg-1">
-          <h6 style="border:black solid 1pt; border-radius:50px;">${data[i].idPergunta}</h6>
-        </div>
-      
-        <div class="col-lg-3">
-          <h6>${data[i].idPergunta}</h6>
-        </div>
-      
-        <div class="col-lg-6">
-          <h6>${data[i].Pergunta}</h6>
-        </div>
-      
-        <div class="col-lg-2 d-flex justify-content-center">
-          <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
-            <i class="bi bi-brush" id="edit"></i>
-          </button>
-        </div>
-      </div>`)
-    }
-   });
-}
+        data = data.filter(data => data.idEixo === 1);
+        for (var i = 0; i < data.length ;i++){
+          $(dados1).append("")
+          $(dados1).append(`<div class="row col-12 text-center align-items-center m-2 questions" id="question${data[i].idPergunta}"> 
+          <!--linha das questões-->
+          <div class="col-lg-1">
+            <h6 style="border:black solid 1pt; border-radius:50px;">${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-3">
+            <h6>${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-6">
+            <h6>${data[i].Pergunta}</h6>
+          </div>
+        
+          <div class="col-lg-2 d-flex justify-content-center">
+            <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
+              <i class="bi bi-brush" id="edit"></i>
+            </button>
+          </div>
+        </div>`)
+      }}
+      else if(eixoSelect == "Equidade"){
+        data = data.filter(data => data.idEixo === 2);
+        for (var i = 0; i < data.length ;i++){
+          $(dados1).append("")
+          $(dados1).append(`<div class="row col-12 text-center align-items-center m-2 questions" id="question${data[i].idPergunta}"> 
+          <!--linha das questões-->
+          <div class="col-lg-1">
+            <h6 style="border:black solid 1pt; border-radius:50px;">${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-3">
+            <h6>${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-6">
+            <h6>${data[i].Pergunta}</h6>
+          </div>
+        
+          <div class="col-lg-2 d-flex justify-content-center">
+            <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
+              <i class="bi bi-brush" id="edit"></i>
+            </button>
+          </div>
+        </div>`)
+      }}
+      else if(eixoSelect == "Pessoas"){
+        data = data.filter(data => data.idEixo === 3);
+        for (var i = 0; i < data.length ;i++){
+          $(dados1).append("")
+          $(dados1).append(`<div class="row col-12 text-center align-items-center m-2 questions" id="question${data[i].idPergunta}"> 
+          <!--linha das questões-->
+          <div class="col-lg-1">
+            <h6 style="border:black solid 1pt; border-radius:50px;">${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-3">
+            <h6>${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-6">
+            <h6>${data[i].Pergunta}</h6>
+          </div>
+        
+          <div class="col-lg-2 d-flex justify-content-center">
+            <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
+              <i class="bi bi-brush" id="edit"></i>
+            </button>
+          </div>
+        </div>`)
+      }}
+      else if(eixoSelect == "Fluxo"){
+        data = data.filter(data => data.idEixo === 4);
+        for (var i = 0; i < data.length ;i++){
+          $(dados1).append("")
+          $(dados1).append(`<div class="row col-12 text-center align-items-center m-2 questions" id="question${data[i].idPergunta}"> 
+          <!--linha das questões-->
+          <div class="col-lg-1">
+            <h6 style="border:black solid 1pt; border-radius:50px;">${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-3">
+            <h6>${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-6">
+            <h6>${data[i].Pergunta}</h6>
+          </div>
+        
+          <div class="col-lg-2 d-flex justify-content-center">
+            <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
+              <i class="bi bi-brush" id="edit"></i>
+            </button>
+          </div>
+        </div>`)
+      }}
+      else if(eixoSelect == "Gestão para Resultados"){
+        data = data.filter(data => data.idEixo === 5);
+        for (var i = 0; i < data.length ;i++){
+          $(dados1).append("")
+          $(dados1).append(`<div class="row col-12 text-center align-items-center m-2 questions" id="question${data[i].idPergunta}"> 
+          <!--linha das questões-->
+          <div class="col-lg-1">
+            <h6 style="border:black solid 1pt; border-radius:50px;">${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-3">
+            <h6>${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-6">
+            <h6>${data[i].Pergunta}</h6>
+          </div>
+        
+          <div class="col-lg-2 d-flex justify-content-center">
+            <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
+              <i class="bi bi-brush" id="edit"></i>
+            </button>
+          </div>
+        </div>`)
+      }}
+      else if(eixoSelect == "Infraestrutura e TI"){
+        data = data.filter(data => data.idEixo === 6);
+        for (var i = 0; i < data.length ;i++){
+          $(dados1).append("")
+          $(dados1).append(`<div class="row col-12 text-center align-items-center m-2 questions" id="question${data[i].idPergunta}"> 
+          <!--linha das questões-->
+          <div class="col-lg-1">
+            <h6 style="border:black solid 1pt; border-radius:50px;">${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-3">
+            <h6>${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-6">
+            <h6>${data[i].Pergunta}</h6>
+          </div>
+        
+          <div class="col-lg-2 d-flex justify-content-center">
+            <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
+              <i class="bi bi-brush" id="edit"></i>
+            </button>
+          </div>
+        </div>`)
+      }}
+      else if(eixoSelect == "Incentivos"){
+        data = data.filter(data => data.idEixo === 7);
+        for (var i = 0; i < data.length ;i++){
+          $(dados1).append("")
+          $(dados1).append(`<div class="row col-12 text-center align-items-center m-2 questions" id="question${data[i].idPergunta}"> 
+          <!--linha das questões-->
+          <div class="col-lg-1">
+            <h6 style="border:black solid 1pt; border-radius:50px;">${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-3">
+            <h6>${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-6">
+            <h6>${data[i].Pergunta}</h6>
+          </div>
+        
+          <div class="col-lg-2 d-flex justify-content-center">
+            <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
+              <i class="bi bi-brush" id="edit"></i>
+            </button>
+          </div>
+        </div>`)
+      }}
+      else if(eixoSelect == "Gestão de Pessoas"){
+        data = data.filter(data => data.idEixo === 8);
+        for (var i = 0; i < data.length ;i++){
+          $(dados1).append("")
+          $(dados1).append(`<div class="row col-12 text-center align-items-center m-2 questions" id="question${data[i].idPergunta}"> 
+          <!--linha das questões-->
+          <div class="col-lg-1">
+            <h6 style="border:black solid 1pt; border-radius:50px;">${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-3">
+            <h6>${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-6">
+            <h6>${data[i].Pergunta}</h6>
+          </div>
+        
+          <div class="col-lg-2 d-flex justify-content-center">
+            <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
+              <i class="bi bi-brush" id="edit"></i>
+            </button>
+          </div>
+        </div>`)
+      }}
+      else if(eixoSelect == "Sistema de Gestão"){
+        data = data.filter(data => data.idEixo === 9);
+        for (var i = 0; i < data.length ;i++){
+          $(dados1).append("")
+          $(dados1).append(`<div class="row col-12 text-center align-items-center m-2 questions" id="question${data[i].idPergunta}"> 
+          <!--linha das questões-->
+          <div class="col-lg-1">
+            <h6 style="border:black solid 1pt; border-radius:50px;">${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-3">
+            <h6>${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-6">
+            <h6>${data[i].Pergunta}</h6>
+          </div>
+        
+          <div class="col-lg-2 d-flex justify-content-center">
+            <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
+              <i class="bi bi-brush" id="edit"></i>
+            </button>
+          </div>
+        </div>`)
+      }}
+  })};
 
 
 function setQuestionModal(questionObj) {
