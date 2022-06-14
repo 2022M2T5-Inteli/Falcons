@@ -196,21 +196,36 @@ app.get('/Pergunta', (req, res) => {
   db.close(); // Fecha o banco
 });
 
-//Insere um registro (é o C do CRUD - Create)
-app.post('/perguntaInsert', urlencodedParser, (req, res) => {
+app.post('/deletePergunta', urlencodedParser, (req, res) => {
   res.statusCode = 200;
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
 
-  sql = "INSERT INTO Pergunta (idPergunta, Pergunta, idEixo, idTema, idTipo) VALUES ('" + req.body.idPergunta + "', '" + req.body.Pergunta + "' ,'" + req.body.idEixo + "', 2, 2)";
-  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  sql = "DELETE FROM Pergunta WHERE idPergunta =" + req.body.idPergunta ;
+  var db = new sqlite3.Database(DBPATH);
   db.run(sql, [], err => {
     if (err) {
       throw err;
     }
+    res.end();
   });
-  db.close(); // Fecha o banco
-  res.end();
+  db.close();
 });
+
+  //Insere um registro (é o C do CRUD - Create)
+  app.post('/perguntaInsert', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+    sql = "INSERT INTO Pergunta (idPergunta, Pergunta, idEixo, idTema, idTipo) VALUES ('" + req.body.idPergunta + "', '" + req.body.Pergunta + "' ,'" + req.body.idEixo + "', 2, 2)";
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.run(sql, [], err => {
+      if (err) {
+        throw err;
+      }
+    });
+    db.close(); // Fecha o banco
+    res.end();
+  });
 
 // CRUD - Tema 
 //Patricia
