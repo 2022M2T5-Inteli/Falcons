@@ -54,7 +54,6 @@ function addQuestion(){
 
       console.log(Eixo)
 
-
       $.ajax({
         url: "http://127.0.0.1:3008/perguntaInsert",
         type: 'POST',
@@ -66,8 +65,8 @@ function addQuestion(){
     },
     );
     
-    ler()  
-    
+    ler()
+    document.location.reload(true);  
 
     function ler() {
       $.ajax({
@@ -92,14 +91,14 @@ function addQuestion(){
             
               <div class="col-lg-2 d-flex justify-content-center">
                 <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
-                  <i class="bi bi-brush" id="edit"></i>
+                  <i class="bi bi-trash"/></i>
                 </button>
               </div>
             </div>`)
           };
           }
       });
-  }})}
+}})}
 
 function updateQuestions(){
   var select = document.getElementById('Eixo');
@@ -133,7 +132,7 @@ function updateQuestions(){
         
           <div class="col-lg-2 d-flex justify-content-center">
             <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
-              <i class="bi bi-brush" id="edit"></i>
+            <i class="bi bi-trash" id="deleteBtn" onclick="deleteQuestion(${data[i].idPergunta})"/></i>
             </button>
           </div>
         </div>`)
@@ -158,7 +157,7 @@ function updateQuestions(){
         
           <div class="col-lg-2 d-flex justify-content-center">
             <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
-              <i class="bi bi-brush" id="edit"></i>
+              <i class="bi bi-trash" id="deleteBtn" onclick="deleteQuestion(${data[i].idPergunta})"/></i>
             </button>
           </div>
         </div>`)
@@ -183,7 +182,7 @@ function updateQuestions(){
         
           <div class="col-lg-2 d-flex justify-content-center">
             <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
-              <i class="bi bi-brush" id="edit"></i>
+            <i class="bi bi-trash" id="deleteBtn" onclick="deleteQuestion(${data[i].idPergunta})"/></i>
             </button>
           </div>
         </div>`)
@@ -208,7 +207,7 @@ function updateQuestions(){
         
           <div class="col-lg-2 d-flex justify-content-center">
             <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
-              <i class="bi bi-brush" id="edit"></i>
+            <i class="bi bi-trash" id="deleteBtn" onclick="deleteQuestion(${data[i].idPergunta})"/></i>
             </button>
           </div>
         </div>`)
@@ -233,7 +232,7 @@ function updateQuestions(){
         
           <div class="col-lg-2 d-flex justify-content-center">
             <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
-              <i class="bi bi-brush" id="edit"></i>
+            <i class="bi bi-trash" id="deleteBtn" onclick="deleteQuestion(${data[i].idPergunta})"/></i>
             </button>
           </div>
         </div>`)
@@ -258,7 +257,7 @@ function updateQuestions(){
         
           <div class="col-lg-2 d-flex justify-content-center">
             <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
-              <i class="bi bi-brush" id="edit"></i>
+            <i class="bi bi-trash" id="deleteBtn" onclick="deleteQuestion(${data[i].idPergunta})"/></i>
             </button>
           </div>
         </div>`)
@@ -283,7 +282,7 @@ function updateQuestions(){
         
           <div class="col-lg-2 d-flex justify-content-center">
             <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
-              <i class="bi bi-brush" id="edit"></i>
+              <i class="bi bi-trash" id="deleteBtn" onclick="deleteQuestion(${data[i].idPergunta})"/></i>
             </button>
           </div>
         </div>`)
@@ -308,7 +307,7 @@ function updateQuestions(){
         
           <div class="col-lg-2 d-flex justify-content-center">
             <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
-              <i class="bi bi-brush" id="edit"></i>
+            <i class="bi bi-trash" id="deleteBtn" onclick="deleteQuestion(${data[i].idPergunta})"/></i>
             </button>
           </div>
         </div>`)
@@ -333,12 +332,56 @@ function updateQuestions(){
         
           <div class="col-lg-2 d-flex justify-content-center">
             <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
-              <i class="bi bi-brush" id="edit"></i>
+            <i class="bi bi-trash" id="deleteBtn" onclick="deleteQuestion(${data[i].idPergunta})"/></i>
             </button>
           </div>
         </div>`)
       }}
-  })};
+})};
+
+function deleteQuestion(id){
+  $.ajax({
+    url: "http://127.0.0.1:3008/deletePergunta",
+    type: 'POST',
+    data: {
+        idPergunta: id, 
+    },  
+},);
+
+ler()  
+document.location.reload(true);
+
+function ler() {
+  $.ajax({
+      url: "/Pergunta",
+      type: 'GET',
+      success: data => {
+        for (var i = 0; i < 9 ;i++){
+          $(dados1).append("")
+          $(dados1).append(`<div class="row col-12 text-center align-items-center m-2 questions" id="question${data[i].idPergunta}"> 
+          <!--linha das questões-->
+          <div class="col-lg-1">
+            <h6 style="border:black solid 1pt; border-radius:50px;">${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-3">
+            <h6>${data[i].idPergunta}</h6>
+          </div>
+        
+          <div class="col-lg-6">
+            <h6>${data[i].Pergunta}</h6>
+          </div>
+        
+          <div class="col-lg-2 d-flex justify-content-center">
+            <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
+              <i class="bi bi-trash"/></i>
+            </button>
+          </div>
+        </div>`)
+      };
+      }
+  });
+}}
 
 function setQuestionModal(questionObj) {
   let radioButtons = [];
