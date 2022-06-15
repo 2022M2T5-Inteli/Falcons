@@ -29,6 +29,21 @@ $(document).ready(function(){
                 }
             }
     }
+    const eixo2 = { perguntas: [] };
+
+    $("#sizebutton").on('click', function(event) {
+        event.preventDefault();
+
+        console.log("elon musk")
+        $("select").each(function() {
+            eixo2.perguntas.push($(this).val());
+        });
+
+        window.localStorage.setItem("eixo2", JSON.stringify(eixo2));
+
+        console.log(eixo2);
+        return false;
+    });
 });
 
 
