@@ -105,8 +105,15 @@
 
     <div class="container d-flex flex-column align-items-center" id="list">
       <div class="row col-12 text-center align-items-center" id="questionsHeader">
-        <div class="col-12 p-4">
+        <div class="col-7 p-4">
           <h4 style="color: black; text-align: start;">Selecione a Questão que Deseja Alterar: </h4>
+        </div>
+        <div class="col-5">
+          <div class="card" style="background-color:darkgrey; text-align: center;">
+            <h4>Adicionar Questão: <button id="addBtn" data-bs-toggle="modal" data-bs-target="#questionModal">
+              <i class="bi bi-plus-square"></i>
+            </button></h4>
+          </div>
         </div>
       </div>
 
@@ -138,10 +145,7 @@
 <div class="row">
   <div class="col-4"></div>
   <div class="col-4 p-4">
-    <div class="card" style="background-color:darkgrey; text-align: center;">
-      <h4>Adicionar Questão: <button id="addBtn" data-bs-toggle="modal" data-bs-target="#questionModal">
-        <i class="bi bi-plus-square"></i>
-      </button></h4>
+    
         <!-- Modal Questoes -->
   <div class="modal fade" id="questionModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="questionModalLabel" aria-hidden="true">
@@ -179,25 +183,25 @@
             <div class="form-check p-2">
               <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
               <label class="form-check-label" contenteditable="true">
-                <p>Possível Resposta 2</p>
+                <p id="Option1">Possível Resposta 2</p>
               </label>
             </div>
             <div class="form-check p-2">
               <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
               <label class="form-check-label" contenteditable="true">
-                <p>Possível Resposta 2</p>
+                <p id="Option2">Possível Resposta 2</p>
               </label>
             </div>
             <div class="form-check p-2">
               <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
               <label class="form-check-label" contenteditable="true">
-                <p>Possível Resposta 3</p>
+                <p id="Option3">Possível Resposta 3</p>
               </label>
             </div>
             <div class="form-check p-2">
               <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
               <label class="form-check-label" contenteditable="true">
-                <p>Possível Resposta 4</p>
+                <p id="Option4">Possível Resposta 4</p>
               </label>
             </div>
           </div>

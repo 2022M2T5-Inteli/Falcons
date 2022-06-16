@@ -14,7 +14,16 @@ function update(){
 
 function addQuestion(){
   var sizeList = 0;
+  var sizeOption = 0;
   var Eixo = 0;
+  var Opcao1 = document.getElementById("Option1").textContent 
+  var Opcao2 = document.getElementById("Option2").textContent
+  var Opcao3 = document.getElementById("Option3").textContent
+  var Opcao4 = document.getElementById("Option4").textContent
+
+  var listaOpcao=[Opcao1, Opcao2, Opcao3, Opcao4]
+  console.log(listaOpcao)
+
   $(document).ready(function (){
       var url = '/Pergunta' //endpoint
       var xhttp = new XMLHttpRequest() //script faz o request para o servidor a partir do URL usando o protocolo http, sem ter q atualizar a pag
@@ -23,6 +32,13 @@ function addQuestion(){
       var perguntas = JSON.parse(xhttp.responseText) 
       console.log(perguntas.length)
       sizeList = (perguntas.length + 1)
+
+      var url2 = '/Opcao' //endpoint
+      var xhttp = new XMLHttpRequest() //script faz o request para o servidor a partir do URL usando o protocolo http, sem ter q atualizar a pag
+      xhttp.open("get", url2, false) //define o metódo do request (/get), o endpoint (url), async ou n
+      xhttp.send() //envia o request
+      var opcoes = JSON.parse(xhttp.responseText) 
+      sizeOption = (opcoes.length + 1)
 
       var selectEixo = document.getElementById('Eixo');//Importar Seletor = HTML 
       var escolhido = selectEixo.options[selectEixo.selectedIndex].text;
@@ -62,11 +78,55 @@ function addQuestion(){
             Pergunta: document.getElementById("questionModalText").value,
             idEixo: Eixo,
         },  
-    },
-    );
+    },);
+    
+      $.ajax({
+        url: "http://127.0.0.1:3008/opcaoInsert",
+        type: 'POST',
+        data: {
+          idOpcao: sizeOption,
+          Alternativa: listaOpcao[0],
+          idTipo: sizeList,
+          idPergunta: sizeList,
+        },  
+    },);
+
+    $.ajax({
+      url: "http://127.0.0.1:3008/opcaoInsert",
+      type: 'POST',
+      data: {
+        idOpcao: sizeOption+1,
+        Alternativa: listaOpcao[1],
+        idTipo: sizeList,
+        idPergunta: sizeList,
+      },  
+  },);
+
+  $.ajax({
+    url: "http://127.0.0.1:3008/opcaoInsert",
+    type: 'POST',
+    data: {
+      idOpcao: sizeOption+2,
+      Alternativa: listaOpcao[2],
+      idTipo: sizeList,
+      idPergunta: sizeList,
+    },  
+},);
+
+$.ajax({
+  url: "http://127.0.0.1:3008/opcaoInsert",
+  type: 'POST',
+  data: {
+    idOpcao: sizeOption+3,
+    Alternativa: listaOpcao[3],
+    idTipo: sizeList,
+    idPergunta: sizeList,
+  },  
+},);
     
     ler()
-    document.location.reload(true);  
+    document.location.reload(true);
+     
 
     function ler() {
       $.ajax({
@@ -98,12 +158,21 @@ function addQuestion(){
           };
           }
       });
+      $.ajax({
+        url: "/Opcao",
+        type: 'GET',
+        success: data => {
+          for (var i = 0; i < 9 ;i++){
+        };
+        }
+    });
 }})}
 
-function updateQuestions(){
+function updateQuestions(){  
   var select = document.getElementById('Eixo');
   var eixoSelect = select.options[select.selectedIndex].text;
   console.log(eixoSelect); // Português
+  $(dados1).append(" ")
 
   $(document).ready(function(){
       var url = '/Pergunta' //endpoint
@@ -114,22 +183,18 @@ function updateQuestions(){
 
       if(eixoSelect == "Ensino"){
         data = data.filter(data => data.idEixo === 1);
-        for (var i = 0; i < data.length ;i++){
-          $(dados1).append("")
+        for (var i = 0; i < data.length ;i++){  
           $(dados1).append(`<div class="row col-12 text-center align-items-center m-2 questions" id="question${data[i].idPergunta}"> 
           <!--linha das questões-->
           <div class="col-lg-1">
             <h6 style="border:black solid 1pt; border-radius:50px;">${data[i].idPergunta}</h6>
           </div>
-        
           <div class="col-lg-3">
             <h6>${data[i].idPergunta}</h6>
           </div>
-        
           <div class="col-lg-6">
             <h6>${data[i].Pergunta}</h6>
           </div>
-        
           <div class="col-lg-2 d-flex justify-content-center">
             <button id="editBtn" onclick="openQuestion(${data[i].idPergunta});">
             <i class="bi bi-trash" id="deleteBtn" onclick="deleteQuestion(${data[i].idPergunta})"/></i>
@@ -140,7 +205,6 @@ function updateQuestions(){
       else if(eixoSelect == "Equidade"){
         data = data.filter(data => data.idEixo === 2);
         for (var i = 0; i < data.length ;i++){
-          $(dados1).append("")
           $(dados1).append(`<div class="row col-12 text-center align-items-center m-2 questions" id="question${data[i].idPergunta}"> 
           <!--linha das questões-->
           <div class="col-lg-1">
@@ -382,6 +446,65 @@ function ler() {
       }
   });
 }}
+
+function options(){
+  $(document).ready(function(){
+    var url = '/Pergunta' //endpoint
+    var xhttp = new XMLHttpRequest() //script faz o request para o servidor a partir do URL usando o protocolo http, sem ter q atualizar a pag
+    xhttp.open("get", url, false) //define o metódo do request (/get), o endpoint (url), async ou n
+    xhttp.send() //envia o request
+    var perguntas = JSON.parse(xhttp.responseText) //retorna a resposta em forma de texto (tem q transformar em JSON para poder consultar atributos especificos como .nome; .idade)
+    console.log(perguntas)
+    if (perguntas){
+            url = '/Opcao' //endpoint
+            xhttp = new XMLHttpRequest() //script faz o request para o servidor a partir do URL usando o protocolo http, sem ter q atualizar a pag
+            xhttp.open("get", url, false) //define o metódo do request (/get), o endpoint (url), async ou n
+            xhttp.send() //envia o request
+            var options = JSON.parse(xhttp.responseText) //retorna a resposta em forma de texto (tem q transformar em JSON para poder consultar atributos especificos como .nome; .idade)
+            console.log(options)
+            perguntas = perguntas.filter(pergunta => pergunta.idEixo === 1);  
+            if (options){
+                for (var i =0; i < perguntas.length; i++){
+                    /*--linha das questões */
+                    var caixa = (`<div class="row"> <h4 id=" ${perguntas[i].idPergunta} "> ${perguntas[i].Pergunta} </h4>
+                    <div style="width: 550px;"> <select class="form-select" aria-label="Default select example">
+                        <option selected> Escolha uma opção </option>`)
+                    for (var j=0; j<options.length; j++){
+                        if (perguntas[i].idTipo == options[j].idTipo){
+                            caixa += (`<option value="1"> ${options[j].Alternativa} </option>`)
+                        } 
+                    }
+                    caixa += (`</select> </div> </div>`) 
+                    $(font2).append(caixa) 
+                }
+            }
+    }
+});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function setQuestionModal(questionObj) {
   let radioButtons = [];
