@@ -144,3 +144,33 @@ dgCidadesEstados.prototype = {
 	['Palmas','Abreulândia','Aguiarnópolis','Aliança do Tocantins','Almas','Alvorada','Ananás','Angico','Aparecida do Rio Negro','Aragominas','Araguacema','Araguaçu','Araguaína','Araguanã','Araguatins','Arapoema','Arraias','Augustinópolis','Aurora do Tocantins','Axixá do Tocantins','Babaçulândia','Bandeirantes do Tocantins','Barra do Ouro','Barrolândia','Bernardo Sayão','Bom Jesus do Tocantins','Brasilândia do Tocantins','Brejinho de Nazaré','Buriti do Tocantins','Cachoeirinha','Campos Lindos','Cariri do Tocantins','Carmolândia','Carrasco Bonito','Caseara','Centenário','Chapada da Natividade','Chapada de Areia','Colinas do Tocantins','Colméia','Combinado','Conceição do Tocantins','Couto de Magalhães','Cristalândia','Crixás do Tocantins','Darcinópolis','Dianópolis','Divinópolis do Tocantins','Dois Irmãos do Tocantins','Dueré','Esperantina','Fátima','Figueirópolis','Filadélfia','Formoso do Araguaia','Fortaleza do Tabocão','Goianorte','Goiatins','Guaraí','Gurupi','Ipueiras','Itacajá','Itaguatins','Itapiratins','Itaporã do Tocantins','Jaú do Tocantins','Juarina','Lagoa da Confusão','Lagoa do Tocantins','Lajeado','Lavandeira','Lizarda','Luzinópolis','Marianópolis do Tocantins','Mateiros','Maurilândia do Tocantins','Miracema do Tocantins','Miranorte','Monte do Carmo','Monte Santo do Tocantins','Muricilândia','Natividade','Nazaré','Nova Olinda','Nova Rosalândia','Novo Acordo','Novo Alegre','Novo Jardim','Oliveira de Fátima','Palmeirante','Palmeiras do Tocantins','Palmeirópolis','Paraíso do Tocantins','Paranã','Pau d\'Arco','Pedro Afonso','Peixe','Pequizeiro','Pindorama do Tocantins','Piraquê','Pium','Ponte Alta do Bom Jesus','Ponte Alta do Tocantins','Porto Alegre do Tocantins','Porto Nacional','Praia Norte','Presidente Kennedy','Pugmil','Recursolândia','Riachinho','Rio da Conceição','Rio dos Bois','Rio Sono','Sampaio','Sandolândia','Santa Fé do Araguaia','Santa Maria do Tocantins','Santa Rita do Tocantins','Santa Rosa do Tocantins','Santa Tereza do Tocantins','Santa Terezinha do Tocantins','São Bento do Tocantins','São Félix do Tocantins','São Miguel do Tocantins','São Salvador do Tocantins','São Sebastião do Tocantins','São Valério da Natividade','Silvanópolis','Sítio Novo do Tocantins','Sucupira','Taguatinga','Taipas do Tocantins','Talismã','Tocantínia','Tocantinópolis','Tupirama','Tupiratins','Wanderlândia','Xambioá']
   ]
 };
+
+function cadastro(){
+  var nf = document.getElementById("Número de funcionários administrativos").value;
+  var np = document.getElementById("Número de professores").value;
+  var na = document.getElementById("Número de alunos").value;
+  var ne = document.getElementById("nomeEscola").value;
+  
+  var es = document.getElementById("estado1");
+  var ci = document.getElementById("cidade1");
+  var mo = document.getElementById("modalidade");
+  var modalidade = mo.options[mo.selectedIndex].text;
+  var cidade = ci.options[ci.selectedIndex].text;
+  var estado = es.options[es.selectedIndex].text;
+
+  var url = '/Escola' //endpoint
+  var xhttp = new XMLHttpRequest() //script faz o request para o servidor a partir do URL usando o protocolo http, sem ter q atualizar a pag
+  xhttp.open("get", url, false) //define o metódo do request (/get), o endpoint (url), async ou n
+  xhttp.send() //envia o request
+  var cadastro = JSON.parse(xhttp.responseText) //retorna a resposta em forma de texto (tem q transformar em JSON para poder consultar atributos especificos como .nome; .idade)
+  var idEscola = ( cadastro.length + 1 )
+  console.log(idEscola)
+
+  $.ajax({
+    type: 'POST',
+    url: '/escolaInsert',
+    data: {Cidade: cidade, idEscola: idEscola, Modalidade: modalidade, NumProf:np, NumAlun: na , NumFunc: nf, Nome: ne, Estado: estado}
+  });
+  
+}
+  

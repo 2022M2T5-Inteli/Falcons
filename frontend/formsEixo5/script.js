@@ -29,4 +29,19 @@ $(document).ready(function(){
                 }
             }
     }
+    const eixo5 = { perguntas: [] };
+
+    $("#sizebutton").on('click', function(event) {
+        event.preventDefault();
+
+        console.log("elon musk")
+        $("select").each(function() {
+            eixo5.perguntas.push($(this).val());
+        });
+
+        window.localStorage.setItem("eixo5", JSON.stringify(eixo5));
+
+        console.log(eixo5);
+        return false;
+    });
 });
