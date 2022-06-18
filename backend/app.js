@@ -260,9 +260,9 @@ app.post('/temaInsert', urlencodedParser, (req, res) => {
   res.end();
 });
 
-// CRUD - Resposta 
+// CRUD - Resposta Gestao
 // Daniel
-app.get('/Resposta', (req, res) => {
+app.get('/RespostaGestao', (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -278,11 +278,44 @@ app.get('/Resposta', (req, res) => {
 });
 
 //Insere um registro (é o C do CRUD - Create)
-app.post('/respostaInsert', urlencodedParser, (req, res) => {
+app.post('/respostagestaoInsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-  sql = "INSERT INTO Resposta (idResposta, idPergunta, idEscola, Completed, idOpcao) VALUES ('" + req.body.idResposta + "', '" + req.body.idPergunta + "' ,'" + req.body.idEscola + "','" + req.body.Completed + "','" + req.body.idOpcao + "')";
+  sql = "INSERT INTO Resposta (idResposta, idPergunta, Escola, Resultado, Tema) VALUES ('" + req.body.idResposta + "', '" + req.body.idPergunta + "' ,'" + req.body.Escola + "','" + req.body.Resultado + "','" + req.body.Tema + "')";
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  db.run(sql, [], err => {
+    if (err) {
+      throw err;
+    }
+  });
+  db.close(); // Fecha o banco
+  res.end();
+});
+
+// CRUD - Resposta Gestao
+// Daniel
+app.get('/RespostaGestao', (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var sql = 'SELECT * FROM Resposta ORDER BY idResposta COLLATE NOCASE';
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    res.json(rows);
+  });
+  db.close(); // Fecha o banco
+});
+
+//Insere um registro (é o C do CRUD - Create)
+app.post('/respostaeducacionalInsert', urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+  sql = "INSERT INTO Resposta (idResposta, idPergunta, Escola, Resultado, Eixo) VALUES ('" + req.body.idResposta + "', '" + req.body.idPergunta + "' ,'" + req.body.Escola + "','" + req.body.Resultado + "','" + req.body.Eixo + "')";
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   db.run(sql, [], err => {
     if (err) {
@@ -330,7 +363,7 @@ app.post('/opcaoInsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-  sql = "INSERT INTO Opcao (idOpcao, Alternativa, idTipo, idPergunta) VALUES ('" + req.body.idOpcao + "', '" + req.body.Alternativa + "' ,'" + req.body.idTipo + "','" + req.body.idPergunta + "')";
+  sql = "INSERT INTO Opcao (idOpcao, Alternativa, idTipo, idPergunta, Resultado) VALUES ('" + req.body.idOpcao + "', '" + req.body.Alternativa + "' ,'" + req.body.idTipo + "','" + req.body.idPergunta + "', '" + req.body.Resultado + "')";
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   db.run(sql, [], err => {
     if (err) {

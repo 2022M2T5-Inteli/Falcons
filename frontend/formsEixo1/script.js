@@ -61,4 +61,9 @@
         return false;
     });
 
+    $.ajax({
+        type: 'POST',
+        url: '/respostaeducacionalInsert',
+        data: {idResposta: , idPergunta: , Escola: , Resultado: , Eixo: }
+      });
 });
