@@ -325,6 +325,23 @@ app.get('/Opcao', (req, res) => {
   db.close(); // Fecha o banco
 });
 
+//Insere um registro (é o C do CRUD - Create)
+app.post('/opcaoInsert', urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+  sql = "INSERT INTO Opcao (idOpcao, Alternativa, idTipo, idPergunta) VALUES ('" + req.body.idOpcao + "', '" + req.body.Alternativa + "' ,'" + req.body.idTipo + "','" + req.body.idPergunta + "')";
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  db.run(sql, [], err => {
+    if (err) {
+      throw err;
+    }
+  });
+  db.close(); // Fecha o banco
+  res.end();
+});
+
+
 /* Inicia o servidor */
 app.listen(port, hostname, () => {
   console.log(`BD server running at http://${hostname}:${port}/`);

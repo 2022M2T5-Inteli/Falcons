@@ -69,22 +69,31 @@
         </div>
         <div class="row" style="margin-top:50px">
           <h2 style="text-align:start; font-family: Manrope;"> Por favor, indique a Agenda: </h2>
-          <select name="agendas" id="agendas" class="form-control" onChange="update()">
-            <option value="select">Selecione...</option>
-            <option value="AgendaEducacional">Agenda Educacional</option>
-            <option value="AgendaDeGestao">Agenda de Gestão</option>
-          </select>
+          <div class="col-9">
+            <select name="agendas" id="agendas" class="form-control" onChange="update()">
+              <option value="select">Selecione...</option>
+              <option value="AgendaEducacional">Agenda Educacional</option>
+              <option value="AgendaDeGestao">Agenda de Gestão</option>
+            </select>
+          </div>
+          <div class="col-3">
+            <div class="col-3">
+              <button style="background-color:#fff;border:none;" data-bs-toggle="modal" data-bs-target="#agendaModal">
+                <h2><i class="bi bi-plus-square"></i></h2>
+              </button>
+          </div>
+          </div>
         </div>
         <div class="row" style="margin-top:50px">
             <h2 style="text-align:start; font-family: Manrope;">Por favor, indique o Eixo: </h2>
-            <div class="col-8">
+            <div class="col-9">
               <select id="Eixo" class="form-control" onchange="updateQuestions()">
                 <option value="">Selecione...</option>
                 </select> 
             </div>
-            <div class="col-4">
-                <button style="background-color:#fff;border:none;">
-                  <i class="bi bi-plus-square"></i>
+            <div class="col-3">
+                <button style="background-color:#fff;border:none;" data-bs-toggle="modal" data-bs-target="#eixoModal">
+                  <h2><i class="bi bi-plus-square"></i></h2>
                 </button>
             </div>
           </div>
@@ -96,8 +105,15 @@
 
     <div class="container d-flex flex-column align-items-center" id="list">
       <div class="row col-12 text-center align-items-center" id="questionsHeader">
-        <div class="col-12 p-4">
+        <div class="col-7 p-4">
           <h4 style="color: black; text-align: start;">Selecione a Questão que Deseja Alterar: </h4>
+        </div>
+        <div class="col-5">
+          <div class="card" style="background-color:darkgrey; text-align: center;">
+            <h4>Adicionar Questão: <button id="addBtn" data-bs-toggle="modal" data-bs-target="#questionModal">
+              <i class="bi bi-plus-square"></i>
+            </button></h4>
+          </div>
         </div>
       </div>
 
@@ -118,7 +134,7 @@
   
             <div class="col-lg-2">
               <button id="editBtn">
-                <i class="bi bi-brush"></i>
+                <i class="bi bi-trash" id="deleteBtn" onclick="deleteQuestion()"/></i>
               </button>
             </div>
             <div id="dados1"></div>
@@ -129,11 +145,8 @@
 <div class="row">
   <div class="col-4"></div>
   <div class="col-4 p-4">
-    <div class="card" style="background-color:darkgrey; text-align: center;">
-      <h4>Adicionar Questão: <button id="addBtn" data-bs-toggle="modal" data-bs-target="#questionModal">
-        <i class="bi bi-plus-square"></i>
-      </button></h4>
-        <!-- Modal -->
+    
+        <!-- Modal Questoes -->
   <div class="modal fade" id="questionModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="questionModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -170,25 +183,25 @@
             <div class="form-check p-2">
               <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
               <label class="form-check-label" contenteditable="true">
-                <p>Possível Resposta 2</p>
+                <p id="Option1">Possível Resposta 2</p>
               </label>
             </div>
             <div class="form-check p-2">
               <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
               <label class="form-check-label" contenteditable="true">
-                <p>Possível Resposta 2</p>
+                <p id="Option2">Possível Resposta 2</p>
               </label>
             </div>
             <div class="form-check p-2">
               <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
               <label class="form-check-label" contenteditable="true">
-                <p>Possível Resposta 3</p>
+                <p id="Option3">Possível Resposta 3</p>
               </label>
             </div>
             <div class="form-check p-2">
               <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
               <label class="form-check-label" contenteditable="true">
-                <p>Possível Resposta 4</p>
+                <p id="Option4">Possível Resposta 4</p>
               </label>
             </div>
           </div>
@@ -200,6 +213,79 @@
       </div>
     </div>
   </div>
+
+   <!-- Modal Eixo -->
+   <div class="modal fade" id="eixoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+   aria-labelledby="eixoModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-lg">
+     <div class="modal-content">
+       <div class="modal-header">
+           <div class="col-5">
+           </div>
+           <div class="col-5">
+            
+           </div>
+           <div class="col-1">
+             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+         </div>
+       <div class="modal-body p-4">
+         <!-- texto da questão -->
+         <div class="row">
+          <h2 style="text-align: start;">Indique seu novo Eixo:</h2>
+         </div>
+         <div class="row">
+           <div class="d-flex" id="questionBody">
+             <div class="col-9">
+               <input type="text" class="form-control" style="font-family: Poppins;" id="eixoModalText" contenteditable="true"/>
+             </div>
+         </div>
+         </div>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Salvar</button>
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <!-- Modal Agenda -->
+ <div class="modal fade" id="agendaModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+ aria-labelledby="agendaModalLabel" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered modal-lg">
+   <div class="modal-content">
+     <div class="modal-header">
+         <div class="col-5">
+         </div>
+         <div class="col-5">
+         </div>
+         <div class="col-1">
+           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+       </div>
+     <div class="modal-body p-4">
+       <!-- texto da questão -->
+       <div class="row">
+        <h2 style="text-align: start;">Indique sua nova Agenda:</h2>
+       </div>
+       <div class="row">
+         <div class="d-flex" id="questionBody">
+           <div class="col-9">
+             <input type="text" class="form-control" style="font-family: Poppins;" id="agendaModalText" contenteditable="true"/>
+           </div>
+       </div>
+       </div>
+     </div>
+     <div class="modal-footer">
+       <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Salvar</button>
+       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+     </div>
+   </div>
+ </div>
+</div>
+
+
 
     </div>
   </div>
