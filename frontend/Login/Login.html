@@ -33,10 +33,9 @@
     
         <link href="style.css" rel="stylesheet">
         <link href="../styles.css" rel="stylesheet">
-        
-        <script src="script.js"></script>
     </head>
-    <body class="bg-light">
+    <body style="background-color: black";  class="bg-light">
+        
         <nav id="NAV"class="navbar navbar-expand-lg navbar-mainbg" style="font-family:Poppins;">
             <a class="navbar-brand navbar-logo" href="#" ><img style="width:176px;" src="../imgs/Falconi.png"/></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,75 +57,27 @@
             </ul>
             <button class="btn-dark" style="width:120px; margin-right: 50px; margin-top:10px; margin-bottom:10px; border-radius: 20px;" ><strong><a style="color:#fff" href="../perfil/index.html" >Perfil</a></strong></button>
            </nav>
-            <video autoplay muted loop id="myVideo" class="video">
-                <source src="images/background-video-grey.mp4" type="video/mp4">
-            </video>
+
             <article class="container mb-4">
                 <div class="col-12" style="justify-content: center; align-items: center; display: flex;">
-                   
                         <div class="card p-5" style="margin-top: 70px; width: 65%; text-align: center;">
                             <div class="py-5 ">
-                                <h1 class="mb-4 d-block mx-auto"> Cadastro de Informações</h1>
-                                <p class="lead"> Preencha as informações gerais da sua instituição de ensino abaixo.</p>
+                                <h1 class="mb-4 d-block mx-auto"> Login de escola</h1>
                             </div>
                             <div class="row mb-3 justify-content-center">
                                 <div class="col-8" style="padding-bottom: 25px;">
                                     <div class="row">
-                                        <label for="Escola" class="form-label">Escola</label>
+                                        <label for="IdEscola" class="form-label">Nome da Escola</label>
                                         <input type="text" class="form-control" id="nomeEscola"/>
                                     </div>
                                     <br>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <label for="Estado" class="form-label">Estado</label>
-                                            <select class="form-control" id="estado1" value="Selecione"></select>
-                                        </div>  
-                                        <div class="col-6">
-                                            <label for="Cidade" class="form-label">Cidade</label>
-                                            <select class="form-control" id="cidade1" value="Selecione"></select>
-                                            <script language="JavaScript" type="text/javascript" charset="utf-8">
-                                                new dgCidadesEstados({
-                                                    cidade: document.getElementById('cidade1'),
-                                                    estado: document.getElementById('estado1')
-                                                })
-                                            </script>
-                                        </div>
-                                    </div>
                                 </div>
-                         
-                            </div>
-                            <div class="row mb-3 justify-content-center">
-                                <div class="col-12 col-sm-4">
-                                    <label for="Tipo" class="form-label">Modalidade</label>
-                                    <select id="modalidade" class="form-control">
-                                    <option value="">Selecione...</option>
-                                    <option>Ensino Médio</option>
-                                    <option>Ensino Fundamental</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row justify-content-center">
-                                <div class="col-8" style="padding-bottom: 25px;">
-                                    
-                                </div>
-                                <div class="col-8" style="padding-bottom: 25px;">
-                                    <label for="Número de alunos" class="form-label">Número de alunos</label>
-                                    <input type="number" id="Número de alunos" class="form-control">
-                                    
-                                </div>
-                                <div class="col-8" style="padding-bottom: 25px;">
-                                    <label for="Número de professores" class="form-label">Número de professores</label>
-                                    <input type="number" id="Número de professores" class="form-control">
-                                </div>
-                                <div class="col-8" style="padding-bottom: 25px;">
-                                    <label for="Número de funcionários administrativos" class="form-label">Número de funcionários administrativos</label>
-                                    <input type="number" id="Número de funcionários administrativos" class="form-control">
-                                </div>
-                            </div>
                             <div class="form-group row">
-                                <div class="col-7"></div>
+                                <div class="col-7">
+                                    <button style=" background-color: black;" type="Enviar" class="btn"><a style=" background-color: black ;color:#fff;">Cadastrar</a></button>
+                                </div>
                                 <div class="col-5">
-                                <button onclick="cadastro()" style=" background-color: black;" type="Enviar" class="btn"><a style=" background-color: black ;color:#fff; text-decoration: none;" href="../infoForm/index.html" >Iniciar Agendas</a></button>
+                                <button style=" background-color: black;" type="Enviar" class="btn"><a style=" background-color: black ;color:#fff;">Entrar</a></button>
                                 </div>
                             </div>
                         </div>
