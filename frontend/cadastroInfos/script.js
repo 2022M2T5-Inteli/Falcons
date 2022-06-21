@@ -171,6 +171,9 @@ function cadastro(){
     url: '/escolaInsert',
     data: {Cidade: cidade, idEscola: idEscola, Modalidade: modalidade, NumProf:np, NumAlun: na , NumFunc: nf, Nome: ne, Estado: estado}
   });
+
   
+
+
 }
   
