@@ -23,12 +23,12 @@ $(document).ready(function(){
                         if (perguntas[i].idTipo == options[j].idTipo){
                             caixa += (`<option value="1"> ${options[j].Alternativa} </option>`)
                         }
-                    }
+                    } 
                     caixa += (`</select> </div> </div>`)
                     $(font2).append(caixa)
-                }
+                } 
             }
-    }
+    } /*
     const eixo2 = { perguntas: [] };
 
     $("#sizebutton").on('click', function(event) {
@@ -44,10 +44,5 @@ $(document).ready(function(){
         console.log(eixo2);
         return false;
     });
-});
-
-
-
-
-
-
+}); 
+*/})

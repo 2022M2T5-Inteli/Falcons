@@ -28,7 +28,7 @@ $(document).ready(function(){
                     $(font2).append(caixa)
                 }
             }
-    }
+    } /*
     const eixo5 = { perguntas: [] };
 
     $("#sizebutton").on('click', function(event) {
@@ -44,4 +44,4 @@ $(document).ready(function(){
         console.log(eixo5);
         return false;
     });
-});
+*/});

@@ -29,7 +29,7 @@ $(document).ready(function(){
                     $(font2).append(caixa) 
                 }
             }
-    }
+    } /*
     const eixo4 = { perguntas: [] };
 
     $("#sizebutton").on('click', function(event) {
@@ -45,4 +45,4 @@ $(document).ready(function(){
         console.log(eixo4);
         return false;
     });
-});
+*/});

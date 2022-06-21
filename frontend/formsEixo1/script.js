@@ -33,6 +33,7 @@
 
                     caixa += (`</select> </div> </div>`) 
                     $(font2).append(caixa)
+                    /*
                     url = '/RespostaEducacional' //endpoint
                     xhttp = new XMLHttpRequest() //script faz o request para o servidor a partir do URL usando o protocolo http, sem ter q atualizar a pag
                     xhttp.open("get", url, false) //define o metódo do request (/get), o endpoint (url), async ou n
@@ -43,8 +44,8 @@
                         type: 'POST',
                         url: '/respostaeducacionalInsert',
                         data: {idResposta: respostasize, idPergunta: perguntas[i].idPergunta, Escola: 1, Resultado: 2, Eixo: 1 }
-                      }); 
-                }
+                      }); */
+                    }
             }
         }
 

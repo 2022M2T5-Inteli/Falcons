@@ -29,7 +29,7 @@
                     $(font2).append(caixa) 
                 }
             }
-    }
+    } /*
     const eixo7 = { perguntas: [] };
 
     $("#sizebutton").on('click', function(event) {
@@ -45,4 +45,4 @@
         console.log(eixo7);
         return false;
     });
-});
+*/});
