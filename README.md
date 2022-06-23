@@ -17,12 +17,13 @@
 - <a href="https://www.linkedin.com/in/sophia-de-oliveira-tosar-aba7ab23b/">Sophia de Oliveira Tosar</a> 
 
 ## 📝 Descrição
-Desenvolver uma aplicação para gerar um diagnóstico robusto de maturidade gerencial das redes de ensino considerando 3 pontos:
+<p>Desenvolver uma aplicação para gerar um diagnóstico robusto de maturidade gerencial das redes de ensino considerando 3 pontos:</p>
 
 Agenda Educacional, sob 7 eixos;
-Agenda de Gestão, sob 2 eixos;
-Indicadores Educacionais;
-Ferramenta completa de diagnóstico inicial para avaliação da maturidade gerencial das redes de ensino, facilitando assim as análises e tomadas de decisões das redes de ensino quanto às políticas e investimentos em recursos. Desse modo, iremos desenvolver uma plataforma Web, responsável por garantir a entrega em relação ao preenchimento e armazenamento das informações captadas em relação às respostas para as agendas educacional e de gestão. Assim como os diagnósticos de orientação de acordo com os resultados de cada agenda. Desenvolvida por meio de:
+Agenda de Gestão, sob 2 eixos e
+Indicadores Educacionais.
+
+<p>Ferramenta completa de diagnóstico inicial para avaliação da maturidade gerencial das redes de ensino, facilitando assim as análises e tomadas de decisões das redes de ensino quanto às políticas e investimentos em recursos. Desse modo, iremos desenvolver uma plataforma Web, responsável por garantir a entrega em relação ao preenchimento e armazenamento das informações captadas em relação às respostas para as agendas educacional e de gestão. Assim como os diagnósticos de orientação de acordo com os resultados de cada agenda. Desenvolvida por meio de:</p>
 
 Front-end:
 
