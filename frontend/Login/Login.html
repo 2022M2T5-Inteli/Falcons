@@ -77,7 +77,7 @@
                                     <button style=" background-color: black;" type="Enviar" class="btn"><a style=" background-color: black ;color:#fff;"href="../cadastroInfos/index.html">Cadastrar</a></button>
                                 </div>
                                 <div class="col-5">
-                                <button style=" background-color: black;" type="Enviar" class="btn"><a style=" background-color: black ;color:#fff;"href="../infoForm/index.html">Entrar</a></button>
+                                <button style=" background-color: black;" type="Enviar" class="btn"><a style=" background-color: black ;color:#fff;" href="../infoForm/index.html" onclick="pegarid()">Entrar</a></button>
                                 </div>
                             </div>
                         </div>
@@ -85,5 +85,33 @@
             </article>    
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="../script.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            function pegarid(){
+                
+                var nomeEscola = document.getElementById("nomeEscola").value;
+                var url = '/Escola' //endpoint
+                var xhttp = new XMLHttpRequest() //script faz o request para o servidor a partir do URL usando o protocolo http, sem ter q atualizar a pag
+                xhttp.open("get", url, false) //define o metódo do request (/get), o endpoint (url), async ou n
+                xhttp.send() //envia o request
+                var cadastro = JSON.parse(xhttp.responseText) //retorna a resposta em forma de texto (tem q transformar em JSON para poder consultar atributos especificos como .nome; .idade)
+                var cadastrosize = ( cadastro.length  )
+                
+                
+                for (var i = 0; i <= cadastrosize ; i++){
+                    var nome = JSON.parse(xhttp.responseText)[i]
+                    console.log(nome.Nome)
+                    if (nome.Nome == nomeEscola){
+                        sessionStorage.setItem( "nomeEscola", nomeEscola)
+                        break
+                    }
+                 }
+                
+
+
+            
+            }
+        </script>
+    
     </body>
 </html>

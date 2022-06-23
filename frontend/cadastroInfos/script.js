@@ -164,16 +164,57 @@ function cadastro(){
   xhttp.send() //envia o request
   var cadastro = JSON.parse(xhttp.responseText) //retorna a resposta em forma de texto (tem q transformar em JSON para poder consultar atributos especificos como .nome; .idade)
   var idEscola = ( cadastro.length + 1 )
-  console.log(idEscola)
+  console.log(cadastro)
+
 
   $.ajax({
     type: 'POST',
     url: '/escolaInsert',
     data: {Cidade: cidade, idEscola: idEscola, Modalidade: modalidade, NumProf:np, NumAlun: na , NumFunc: nf, Nome: ne, Estado: estado}
   });
-
+  
+  
+  var url2 = '/Pergunta' //endpoint
+  var xhttp2 = new XMLHttpRequest() //script faz o request para o servidor a partir do URL usando o protocolo http, sem ter q atualizar a pag
+  xhttp2.open("get", url2, false) //define o metódo do request (/get), o endpoint (url), async ou n
+  xhttp2.send() //envia o request
+  var perguntas = JSON.parse(xhttp2.responseText)
+  var perguntasize = perguntas.length
+  var listaEducacional = []
+  
+  var listaGestao = []
+  var listaGestaosize = listaGestao.length
   
 
-
-}
+  for (var i = 0; i < perguntasize; i++){
+    var eixo = JSON.parse(xhttp2.responseText)[i]
+    
+    if (eixo.idEixo > 7){
+        listaGestao.push(eixo.idPergunta); 
+    }
+    else{listaEducacional.push(eixo.idPergunta);
+    }
+  }
+  console.log(listaGestao.length)
   
+
+  for (var i = 0; i < listaEducacional.length ; i++){
+    var eixo = JSON.parse(xhttp2.responseText)[i]
+   
+    $.ajax({
+        type: 'POST',
+        url: '/respostaeducacionalInsert',
+        data: { idPergunta:(i+1), Escola: ne, Resultado: 0, Eixo: eixo.idEixo }
+      }); 
+    }
+  
+  for (var i = 0; i < listaGestao.length ; i++){
+      var eixo = JSON.parse(xhttp2.responseText)[i+(listaEducacional.length)]
+      console.log(eixo.idTema)
+      $.ajax({
+          type: 'POST',
+          url: '/respostagestaoInsert',
+          data: { idPergunta:(i+1+(listaEducacional.length)), Escola: ne, Resultado: 0, Tema: eixo.idTema }
+        }); 
+    }
+  sessionStorage.setItem('nomeEscola', ne )}

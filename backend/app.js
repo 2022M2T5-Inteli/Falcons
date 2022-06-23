@@ -267,7 +267,7 @@ app.get('/RespostaGestao', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
   var db = new sqlite3.Database(DBPATH); // Abre o banco
-  var sql = 'SELECT * FROM RespostaGestao ORDER BY idResposta COLLATE NOCASE';
+  var sql = 'SELECT * FROM RespostaGestao ORDER BY Escola COLLATE NOCASE';
   db.all(sql, [], (err, rows) => {
     if (err) {
       throw err;
@@ -282,7 +282,7 @@ app.post('/respostagestaoInsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-  sql = "INSERT INTO RespostaGestao (idResposta, idPergunta, Escola, Resultado, Tema) VALUES ('" + req.body.idResposta + "', '" + req.body.idPergunta + "' ,'" + req.body.Escola + "','" + req.body.Resultado + "','" + req.body.Tema + "')";
+  sql = "INSERT INTO RespostaGestao ( idPergunta, Escola, Resultado, Tema) VALUES ( '" + req.body.idPergunta + "' ,'" + req.body.Escola + "','" + req.body.Resultado + "','" + req.body.Tema + "')";
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   db.run(sql, [], err => {
     if (err) {
@@ -293,14 +293,14 @@ app.post('/respostagestaoInsert', urlencodedParser, (req, res) => {
   res.end();
 });
 
-// CRUD - Resposta Educacional
+// CRUD - Resposta Geral
 // Daniel
-app.get('/RespostaEducacional', (req, res) => {
+app.get('/RespostaGeral', (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
   var db = new sqlite3.Database(DBPATH); // Abre o banco
-  var sql = 'SELECT * FROM RespostaEducacional ORDER BY idResposta COLLATE NOCASE';
+  var sql = 'SELECT * FROM RespostaEducacional ORDER BY Escola COLLATE NOCASE';
   db.all(sql, [], (err, rows) => {
     if (err) {
       throw err;
@@ -315,7 +315,7 @@ app.post('/respostaeducacionalInsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-  sql = "INSERT INTO RespostaEducacional (idResposta, idPergunta, Escola, Resultado, Eixo) VALUES ('" + req.body.idResposta + "', '" + req.body.idPergunta + "' ,'" + req.body.Escola + "','" + req.body.Resultado + "','" + req.body.Eixo + "')";
+  sql = "INSERT INTO RespostaEducacional (idPergunta, Escola, Resultado, Eixo) VALUES ('" + req.body.idPergunta + "' ,'" + req.body.Escola + "','" + req.body.Resultado + "','" + req.body.Eixo + "')";
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   db.run(sql, [], err => {
     if (err) {
