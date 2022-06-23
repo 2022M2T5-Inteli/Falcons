@@ -327,10 +327,11 @@ app.post('/respostaeducacionalInsert', urlencodedParser, (req, res) => {
 });
 // Atualiza um registro (é o U do CRUD - Update)
 app.post('/respostaeducacionalupdate', urlencodedParser, (req, res) => {
-  res.statusCode = 200;
+  res.statusCode = 200; 
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-  sql = "UPDATE RespostaEducacional SET Resultado = '" + req.body.Resultado + "' WHERE idPergunta = " + req.body.idPergunta + "AND WHERE Escola = " + req.body.Escola;
+  sql = "UPDATE RespostaEducacional SET Resultado = '" + req.body.Resultado + "' WHERE idPergunta = " + req.body.idPergunta + " AND  Escola = '" + req.body.Escola + "'";
+  console.log(sql)
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   db.run(sql, [], err => {
     if (err) {

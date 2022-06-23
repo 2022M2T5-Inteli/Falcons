@@ -86,7 +86,7 @@ var listapergunta = []
 for (var i = 0; i < perguntasize; i++){
     var linha = JSON.parse(xhttp.responseText)[i]
     
-    if (linha.idEixo == 2){
+    if (linha.idEixo == 1){
         listapergunta.push(linha.idPergunta); 
     }
 }
