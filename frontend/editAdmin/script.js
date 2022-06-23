@@ -124,6 +124,7 @@ $.ajax({
   },  
 },);
     
+
     ler()
     document.location.reload(true);
      
@@ -482,86 +483,61 @@ function options(){
 });
 }
 
+function addAgenda(){
+  var novaAgenda = document.getElementById("agendaModalText").value
+  console.log(novaAgenda)
 
+  $(document).ready(function(){
+    var url = '/Agenda' //endpoint
+    var xhttp = new XMLHttpRequest() //script faz o request para o servidor a partir do URL usando o protocolo http, sem ter q atualizar a pag
+    xhttp.open("get", url, false) //define o metódo do request (/get), o endpoint (url), async ou n
+    xhttp.send() //envia o request
+    var agendas = JSON.parse(xhttp.responseText) 
+    var sizeListAgenda = agendas.length + 1
+    console.log(sizeListAgenda)
 
+    $.ajax({
+      type: 'POST',
+      url: '/agendaInsert',
+      data: { idAgenda: sizeListAgenda, Agenda: novaAgenda,}
+    }); 
 
+})}
 
+function addEixo(){
+  var select = document.getElementById('agendas');//Importar Seletor = HTML 
+  var text = select.options[select.selectedIndex].text; //Pegar o valor do seletor
+  console.log(text); // Português
+  var idAgenda = 0
 
+  if(text == "Agenda Educacional"){
+    idAgenda = 1;
+   }
+  else if (text == "Agenda de Gestão"){
+    idAgenda = 2;
+  }
 
+  var novoEixo = document.getElementById("eixoModalText").value
+  console.log(novoEixo)
 
+  $(document).ready(function(){
+    var url = '/Eixo' //endpoint
+    var xhttp = new XMLHttpRequest() //script faz o request para o servidor a partir do URL usando o protocolo http, sem ter q atualizar a pag
+    xhttp.open("get", url, false) //define o metódo do request (/get), o endpoint (url), async ou n
+    xhttp.send() //envia o request
+    var eixos = JSON.parse(xhttp.responseText) 
+    var sizeListEixo = eixos.length + 1
+    console.log(sizeListEixo)
 
+    $.ajax({
+      type: 'POST',
+      url: '/eixoInsert',
+      data: { idEixo: sizeListEixo, idAgenda: idAgenda, Eixo: novoEixo,}
+    }); 
 
+})}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function setQuestionModal(questionObj) {
-  let radioButtons = [];
-
-  // sets the modal content according
-  // to the question object
-  $("#questionNumberText").text(questionObj.number + ".");
-  $("#questionModalTitle").text(questionObj.title);
-  $("#questionModalText").text(questionObj.question);
-  $("#questionWeightSelect").prop("selectedIndex", questionObj.weight);
-
-  // add the question options
-  const questionOptionsList = questionObj.options;
-  questionOptionsList.forEach((questionOption) => {
-    let radioButton = `<div class="form-check p-2">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadio${questionOption.id}">
-    <label class="form-check-label" contenteditable="true">
-      <p>${questionOption.name}</p>
-    </label>
-  </div>`;
-
-    radioButtons.push(radioButton);
-  });
-
-  $("#optionsBody").empty().append(radioButtons);
-}
-
-function removeQuestionCard(questionId) {
-  questionCards = questionCards.filter((questionCard) => {
-    return questionCard.id != questionId;
-  });
-  $(`#question${questionId}`).remove();
-}
-
-function openQuestion(questionId) {
-  let questionObj = questionCards.filter((obj) => {
-    return obj.id == questionId;
-  })[0];
-  setQuestionModal(questionObj);
-  let questionModal = new bootstrap.Modal(
-    document.getElementById("questionModal")
-  );
-  questionModal.toggle();
-}
-
-$(document).ready(function () {
-  questionCards.forEach((question) => {
-    let newQuestionCard = createQuestionCard(
-      question.id,
-      question.number,
-      question.domain,
-      question.question
-    );
-    $("#questionsWrapper").append(newQuestionCard);
-  });
-});
-
+//NavBar
 function test(){
   var tabsNewAnim = $('#navbarSupportedContent');
   var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
@@ -601,5 +577,5 @@ $(".navbar-toggler").click(function(){
   setTimeout(function(){ test(); });
 });
 
-//Home
+
 
