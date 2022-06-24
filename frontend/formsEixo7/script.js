@@ -22,7 +22,7 @@
                         <option selected> Escolha uma opção </option>`)
                     for (var j=0; j<options.length; j++){
                         if (perguntas[i].idTipo == options[j].idTipo){
-                            caixa += (`<option value=${options[j].idOpcao}> ${options[j].Alternativa}</option>`)
+                            caixa += (`<option value=${options[j].Resultado}> ${options[j].Alternativa}</option>`)
                         } 
                     }
                     caixa += (`</select> </div> </div>`) 
@@ -74,7 +74,7 @@ function enviarBanco(){
     
     for (var i = 0; i  <  (listapergunta.length) ; i++){
         var respostas = document.getElementById("input" + i)
-        var resposta = respostas.options[respostas.selectedIndex].text;
+        var resposta = respostas.options[respostas.selectedIndex].value;
         var idPergunta = listapergunta[i]           
         console.log(resposta);
         
