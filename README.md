@@ -38,7 +38,7 @@ SQL
   
 ## 📁 Estrutura de pastas
  - Raiz<br>
-|
+|<br>
 |--> .git (pasta oculta)<br>
 |--> .vscode<br>
 |--> backend<br>
