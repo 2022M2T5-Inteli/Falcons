@@ -347,3 +347,23 @@ $(".navbar-toggler").click(function(){
 
 //Home
 
+function updateData(){
+
+  var Escola = document.getElementById("Escola").value
+
+  var url = '/Respostas1?Escola:"'+Escola+'"' //endpoint
+  var xhttp = new XMLHttpRequest() //script faz o request para o servidor a partir do URL usando o protocolo http, sem ter q atualizar a pag
+  xhttp.open("get", url, false) //define o metódo do request (/get), o endpoint (url), async ou n
+  xhttp.send() //envia o request
+  var dados1 = JSON.parse(xhttp.responseText)
+
+  var url2 = '/Respostas2?Escola:"'+Escola+'"' //endpoint
+  var xhttp2 = new XMLHttpRequest() //script faz o request para o servidor a partir do URL usando o protocolo http, sem ter q atualizar a pag
+  xhttp2.open("get", url2, false) //define o metódo do request (/get), o endpoint (url), async ou n
+  xhttp2.send() //envia o request
+  var dados2 = JSON.parse(xhttp.responseText)
+
+  console.log(dados2)
+  console.log(dados1)
+
+}
