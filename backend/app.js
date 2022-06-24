@@ -277,6 +277,9 @@ app.get('/RespostaGestao', (req, res) => {
   db.close(); // Fecha o banco
 });
 
+
+
+
 //Insere um registro (é o C do CRUD - Create)
 app.post('/respostagestaoInsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
@@ -292,6 +295,24 @@ app.post('/respostagestaoInsert', urlencodedParser, (req, res) => {
   db.close(); // Fecha o banco
   res.end();
 });
+
+
+app.post('/respostagestaoupdate', urlencodedParser, (req, res) => {
+  res.statusCode = 200; 
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+  sql = "UPDATE RespostaGestao SET Resultado = '" + req.body.Resultado + "' WHERE idPergunta = " + req.body.idPergunta + " AND  Escola = '" + req.body.Escola + "'";
+  console.log(sql)
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  db.run(sql, [], err => {
+    if (err) {
+      throw err;
+    }
+    res.end();
+  });
+  db.close(); // Fecha o banco
+});
+
 
 // CRUD - Resposta Geral
 // Daniel
@@ -388,6 +409,21 @@ app.post('/opcaoInsert', urlencodedParser, (req, res) => {
   });
   db.close(); // Fecha o banco
   res.end();
+});
+
+app.get('/Peso', (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var sql = 'SELECT * FROM Peso ORDER BY idPeso COLLATE NOCASE';
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    res.json(rows);
+  });
+  db.close(); // Fecha o banco
 });
 
 
