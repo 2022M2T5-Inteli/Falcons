@@ -57,7 +57,7 @@
         console.log(window.location)
         console.log(window.Location)
 
-        //window.location.replace(window.location.origin + "/formsEixo2")
+        window.location.replace(window.location.origin + "/formsEixo2")
 
 
        
@@ -82,7 +82,6 @@ var perguntas = JSON.parse(xhttp.responseText)
 var perguntasize = perguntas.length
 var listapergunta = []
 
-
 for (var i = 0; i < perguntasize; i++){
     var linha = JSON.parse(xhttp.responseText)[i]
     
@@ -90,10 +89,7 @@ for (var i = 0; i < perguntasize; i++){
         listapergunta.push(linha.idPergunta); 
     }
 }
-console.log(listapergunta)
-console.log(listapergunta.length)
-console.log(listapergunta[0])
-console.log(listapergunta.length + listapergunta[0] - 1)
+
 for (var i = 0; i  <  (listapergunta.length) ; i++){
     var respostas = document.getElementById("input" + i)
     var resposta = respostas.options[respostas.selectedIndex].text;
@@ -104,9 +100,5 @@ for (var i = 0; i  <  (listapergunta.length) ; i++){
         type: 'POST',
         url: '/respostaeducacionalupdate',
         data: { idPergunta:(listapergunta[i]), Escola: nomeEscola, Resultado: resposta }
-      }); 
-
-    
-}
-
-}
+      });    
+}}
