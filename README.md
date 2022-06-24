@@ -23,19 +23,15 @@ Agenda Educacional, sob 7 eixos;
 Agenda de Gestão, sob 2 eixos e
 Indicadores Educacionais.
 
-<p> Ferramenta completa de diagnóstico inicial para avaliação da maturidade gerencial das redes de ensino, facilitando assim as análises e tomadas de decisões das redes de ensino quanto às políticas e investimentos em recursos. Desse modo, iremos desenvolver uma plataforma Web, responsável por garantir a entrega em relação ao preenchimento e armazenamento das informações captadas em relação às respostas para as agendas educacional e de gestão. Assim como os diagnósticos de orientação de acordo com os resultados de cada agenda. Desenvolvida por meio de:</p>
+<p> Atuar com uma ferramenta completa de diagnóstico inicial para avaliação da maturidade gerencial das redes de ensino, facilitando assim as análises e tomadas de decisões das redes de ensino quanto às políticas e investimentos em recursos. Desse modo, iremos desenvolver uma plataforma Web, responsável por garantir a entrega em relação ao preenchimento e armazenamento das informações captadas em relação às respostas para as agendas educacional e de gestão. Assim como os diagnósticos de orientação de acordo com os resultados de cada agenda. Desenvolvida por meio de:</p>
 
 <p> Front-end:
-
-HTML
-CSS
-Bootstrap
-JavaScript
-Back-end:
-
+HTML, CSS, Bootstrap e JavaScript.
+  
+<p> Back-end:
 Node.js com Express.js
-Infraestrutura (Banco de Dados):
 
+<p> Infraestrutura (Banco de Dados):
 SQL
 
 <img src="../frontend/imgs/FalCons_Logo.png" alt="Fal Cons" border="0" style="max-width: 100%">
