@@ -37,18 +37,25 @@ SQL
 <img src="../frontend/imgs/FalCons_Logo.png" alt="FalCons" border="0" style="max-width: 100%"><br>
   
 ## 📁 Estrutura de pastas
-  
-|.git (pasta oculta)<br>
-| .vscode<br>
-| backend<br>
-| Documentos<br>
-    &emsp;| T5_G3_V8.0_Web_application_document.pdf<br>
-    &emsp;| T5_G3_V8.0_Web_application_document.docx<br>
-| frontend<br>
+ - Raiz<br>
+|
+|--> .git (pasta oculta)<br>
+|--> .vscode<br>
+|--> backend<br>
+   --> node_modules<br>
+   &emsp;| app.js<br>
+   &emsp;| dbFalconi.db<br>
+   &emsp;| dbFalconi.sqbpro<br>
+|--> Documentos<br>
+   --> antigos<br>
+     &emsp;| T5_G3_V8.0_Web_application_document.pdf<br>
+     &emsp;| T5_G3_V8.0_Web_application_document.docx<br>
+|--> frontend<br>
+   &emsp;| index.html<br>
 |--> imagens<br>
 |--> src<br>
 | .DS_Store<br>
-| .gitignore<br
+| .gitignore<br>
 | README.md<br>
 | estado.txt<br>
 | package-lock.json
