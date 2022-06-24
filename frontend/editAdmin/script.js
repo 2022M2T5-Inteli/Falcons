@@ -3,6 +3,7 @@ function update(){
   var text = select.options[select.selectedIndex].text; //Pegar o valor do seletor
   console.log(text); // Português
 
+//seleção de eixos e agendas para preenchimento das perguntas
   if(text == "Agenda Educacional"){
     document.getElementById("dados1").innerHTML = ""
     document.getElementById("Eixo").innerHTML = "<option value=''>Selecione...</option><option value='Eixo1'>Ensino</option> <option value='Eixo2'>Equidade</option> <option value='Eixo3'>Pessoas</option> <option value='Eixo4'>Fluxo</option> <option value='Eixo5'>Gestão para Resultados</option><option value='Eixo6'>Infraestrutura e TI</option> <option value='Eixo7'>Incentivos</option>"
@@ -11,7 +12,7 @@ function update(){
     document.getElementById("Eixo").innerHTML = "<option value=''>Selecione...</option><option value='Eixo8'>Gestão de Pessoas</option> <option value='Eixo9'>Sistema de Gestão</option>"
   }
 }
-
+//Função para edição de respostas e perguntas que serão adicionadas
 function addQuestion(){
   var sizeList = 0;
   var sizeOption = 0;
@@ -128,7 +129,6 @@ $.ajax({
     ler()
     document.location.reload(true);
      
-
     function ler() {
       $.ajax({
           url: "/Pergunta",
