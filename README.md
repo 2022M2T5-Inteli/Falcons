@@ -35,16 +35,18 @@ Node.js com Express.js
 SQL
 <br>
 <img src="../frontend/imgs/FalCons_Logo.png" alt="FalCons" border="0" style="max-width: 100%"><br>
+  
 ## 📁 Estrutura de pastas
-
-|--> documentos<br>
-  &emsp;| --> outros <br>
-  &emsp;| T5_G3_V8.0_Web_application_document.pdf<br>
-  &emsp;| T5_G3_V8.0_Web_application_document.docx<br>
+  
+|.git (pasta oculta)<br>
+| .vscode<br>
+| backend<br>
+| Documentos<br>
+    &emsp;| T5_G3_V8.0_Web_application_document.pdf<br>
+    &emsp;| T5_G3_V8.0_Web_application_document.docx<br>
+| frontend<br>
 |--> imagens<br>
 |--> src<br>
-  &emsp;|--> Backend<br>
-  &emsp;|--> Frontend<br>
 | .DS_Store<br>
 | .gitignore<br
 | README.md<br>
