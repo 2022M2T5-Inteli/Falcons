@@ -33,8 +33,8 @@ Node.js com Express.js
 
 <p> Infraestrutura (Banco de Dados):
 SQL
-
-<img src="../frontend/imgs/FalCons_Logo.png" alt="Fal Cons" border="0" style="max-width: 100%">
+<br>
+<img src="../frontend/imgs/FalCons_Logo.png" alt="FalCons" border="0" style="max-width: 100%"><br>
 ## 📁 Estrutura de pastas
 
 |--> documentos<br>
@@ -45,8 +45,11 @@ SQL
 |--> src<br>
   &emsp;|--> Backend<br>
   &emsp;|--> Frontend<br>
-| readme.md<br>
-| license.txt
+| .DS_Store<br>
+| .gitignore<br
+| README.md<br>
+| estado.txt<br>
+| package-lock.json
 
 Dentre os arquivos presentes na raiz do projeto, definem-se:
 
