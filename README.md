@@ -6,7 +6,7 @@
 
 # EduCons
 
-## <Fal><Cons>
+## <b><Fal><Cons></b>
 
 ## Integrantes: 
 - <a href="https://www.linkedin.com/in/daniel-barzilai-061036234">Daniel Barzilai</a>
@@ -17,50 +17,56 @@
 - <a href="https://www.linkedin.com/in/sophia-de-oliveira-tosar-aba7ab23b/">Sophia de Oliveira Tosar</a> 
 
 ## 📝 Descrição
-<p>Desenvolver uma aplicação para gerar um diagnóstico robusto de maturidade gerencial das redes de ensino considerando 3 pontos:</p>
+<p> Desenvolver uma aplicação para gerar um diagnóstico robusto de maturidade gerencial das redes de ensino considerando 3 pontos:</p>
 
 Agenda Educacional, sob 7 eixos;
 Agenda de Gestão, sob 2 eixos e
 Indicadores Educacionais.
 
-<p>Ferramenta completa de diagnóstico inicial para avaliação da maturidade gerencial das redes de ensino, facilitando assim as análises e tomadas de decisões das redes de ensino quanto às políticas e investimentos em recursos. Desse modo, iremos desenvolver uma plataforma Web, responsável por garantir a entrega em relação ao preenchimento e armazenamento das informações captadas em relação às respostas para as agendas educacional e de gestão. Assim como os diagnósticos de orientação de acordo com os resultados de cada agenda. Desenvolvida por meio de:</p>
+<p> Atuar com uma ferramenta completa de diagnóstico inicial para avaliação da maturidade gerencial das redes de ensino, facilitando assim as análises e tomadas de decisões das redes de ensino quanto às políticas e investimentos em recursos. Desse modo, iremos desenvolver uma plataforma Web, responsável por garantir a entrega em relação ao preenchimento e armazenamento das informações captadas em relação às respostas para as agendas educacional e de gestão. Assim como os diagnósticos de orientação de acordo com os resultados de cada agenda. Desenvolvida por meio de:</p>
 
-Front-end:
-
-HTML
-CSS
-Bootstrap
-JavaScript
-Back-end:
-
+<p> Front-end:
+HTML, CSS, Bootstrap e JavaScript.
+  
+<p> Back-end:
 Node.js com Express.js
-Infraestrutura (Banco de Dados):
 
+<p> Infraestrutura (Banco de Dados):
 SQL
-
-<img src="../frontend/imgs/FalCons_Logo.png" alt="Fal Cons" border="0" style="max-width: 100%">
+<br>
+<img src="../frontend/imgs/FalCons_Logo.png" alt="FalCons" border="0" style="max-width: 100%"><br>
+  
 ## 📁 Estrutura de pastas
-
-|--> documentos<br>
-  &emsp;| --> outros <br>
-  &emsp;| T5_G3_V8.0_Web_application_document.pdf<br>
-  &emsp;| T5_G3_V8.0_Web_application_document.docx<br>
+ - Raiz<br>
+|<br>
+|--> .git (pasta oculta)<br>
+|--> .vscode<br>
+|--> backend<br>
+   --> node_modules<br>
+   &emsp;| app.js<br>
+   &emsp;| dbFalconi.db<br>
+   &emsp;| dbFalconi.sqbpro<br>
+|--> Documentos<br>
+   --> antigos<br>
+     &emsp;| T5_G3_V8.0_Web_application_document.pdf<br>
+     &emsp;| T5_G3_V8.0_Web_application_document.docx<br>
+|--> frontend<br>
+   &emsp;| index.html<br>
 |--> imagens<br>
 |--> src<br>
-  &emsp;|--> Backend<br>
-  &emsp;|--> Frontend<br>
-| readme.md<br>
-| license.txt
+| .DS_Store<br>
+| .gitignore<br>
+| README.md<br>
+| estado.txt<br>
+| package-lock.json<br>
 
 Dentre os arquivos presentes na raiz do projeto, definem-se:
 
 - <b>readme.md</b>: arquivo que serve como guia e explicação geral sobre o projeto (o mesmo que você está lendo agora).
 
-- <b>documentos</b>: aqui estarão todos os documentos do projeto. Há também uma pasta denominada <b>outros</b> onde estão presentes aqueles documentos complementares ao <b>web application document</b>.
-
-- <b>imagens</b>: imagens relacionadas ao projeto como um todo (por exemplo imagens do sistema, do grupo, logotipos e afins).
-
-- <b>src</b>: nesta pasta encontra-se todo o código fonte do sistema (existem duas subpastas <b>backend</b> e <b>frontend</b> que contêm, respectivamente, o código do servidor e o código da página web).
+- <b>documentos</b>: aqui estarão todos os documentos do projeto.
+- <b>backend</b>: aqui estão os arquivos pertinentes ao servidor e banco de dados.
+- <b>frontend</b>: aqui estão os arquivos responsáveis pelas telas vistas pelo usuário no site e as ferramentas de funcionamento por trás de cada uma delas.
 
 ## 💻 Configuração para desenvolvimento
 
